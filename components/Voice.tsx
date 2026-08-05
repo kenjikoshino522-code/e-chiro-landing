@@ -23,6 +23,20 @@ const SCREENSHOTS = [
   { src: "/images/testimonials/ikari.png", w: 505, h: 652, alt: "KN iKARiさんの投稿" },
   { src: "/images/testimonials/miitan.png", w: 581, h: 221, alt: "みいたん。さんの投稿" },
   { src: "/images/testimonials/moruko.png", w: 467, h: 107, alt: "モル子さんの投稿" },
+  { src: "/images/testimonials/kakapo-1.jpg", w: 566, h: 170, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kakapo-2.jpg", w: 527, h: 210, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kakapo-3.jpg", w: 578, h: 116, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kakapo-4.jpg", w: 557, h: 85, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kakapo-5.jpg", w: 565, h: 81, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kakapo-6.jpg", w: 562, h: 151, alt: "Kaka_poさんの投稿" },
+  { src: "/images/testimonials/kazuta.jpg", w: 557, h: 115, alt: "かずーたさんの投稿" },
+  { src: "/images/testimonials/gaccha.jpg", w: 584, h: 580, alt: "ガッチャさんの投稿" },
+  { src: "/images/testimonials/gango.jpg", w: 572, h: 276, alt: "SG Gangoさんの投稿" },
+  { src: "/images/testimonials/akichan.jpg", w: 574, h: 183, alt: "あきちゃんんんさんの投稿" },
+  { src: "/images/testimonials/akeno.jpg", w: 538, h: 319, alt: "アケノさんの投稿" },
+  { src: "/images/testimonials/akki.jpg", w: 554, h: 133, alt: "あっきーさんの投稿" },
+  { src: "/images/testimonials/ebi.jpg", w: 572, h: 329, alt: "えびんモさんの投稿" },
+  { src: "/images/testimonials/enty.jpg", w: 573, h: 263, alt: "SG Entyさんの投稿" },
 ];
 
 function ShotCard({ shot }: { shot: (typeof SCREENSHOTS)[number] }) {
