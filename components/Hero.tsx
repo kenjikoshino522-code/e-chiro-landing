@@ -14,7 +14,7 @@ export default function Hero() {
           width={3000}
           height={1000}
           priority
-          className="w-full"
+          className="h-[220px] w-full object-cover object-center sm:h-auto sm:object-contain"
           sizes="100vw"
         />
       </div>

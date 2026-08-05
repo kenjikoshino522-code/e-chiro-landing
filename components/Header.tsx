@@ -38,7 +38,7 @@ export default function Header() {
           href={LINE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full bg-brand-blue px-4 py-2 text-sm font-bold text-white transition hover:opacity-90 sm:px-5"
+          className="flex min-h-11 items-center rounded-full bg-brand-blue px-4 py-2.5 text-sm font-bold text-white transition hover:opacity-90 sm:px-5"
         >
           LINEで相談
         </a>
