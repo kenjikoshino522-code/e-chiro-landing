@@ -107,7 +107,7 @@ export default function Voice() {
           </p>
           <Link
             href="#corporate"
-            className="mt-4 inline-block text-sm font-bold text-brand-blue underline underline-offset-4"
+            className="mt-4 inline-flex min-h-11 items-center py-2 text-sm font-bold text-brand-blue underline underline-offset-4"
           >
             法人プランのご相談はこちら →
           </Link>

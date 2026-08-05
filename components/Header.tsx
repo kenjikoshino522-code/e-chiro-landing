@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="#top" className="flex items-center gap-2">
+        <Link href="#top" className="flex min-h-11 items-center gap-2 py-2">
           <Image
             src="/images/logo-square.jpg"
             alt="e-CHIRO"

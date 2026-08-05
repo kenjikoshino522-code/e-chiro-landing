@@ -14,14 +14,27 @@ export default function Footer() {
           className="rounded-md"
         />
 
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-          <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm">
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-11 items-center px-2 hover:text-white"
+          >
             公式LINE
           </a>
-          <a href={X_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <a
+            href={X_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-11 items-center px-2 hover:text-white"
+          >
             X (@echiro_dc)
           </a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="flex min-h-11 items-center px-2 hover:text-white"
+          >
             {CONTACT_EMAIL}
           </a>
         </div>
