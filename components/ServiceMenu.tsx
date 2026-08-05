@@ -3,19 +3,19 @@ import { LINE_URL } from "@/lib/constants";
 
 const TIERS = [
   {
-    tier: "TIER 1",
+    number: "①",
     src: "/images/menu/menu-03-neckarm.jpg",
-    alt: "TIER 1 Neck & Arm Care ネック&アームケア 首・腕 ¥5,000",
+    alt: "1. Neck & Arm Care ネック&アームケア 首・腕 ¥5,000",
   },
   {
-    tier: "TIER 2",
+    number: "②",
     src: "/images/menu/menu-02-total.jpg",
-    alt: "TIER 2 Total Body Care トータル・ボディケア 全身 ¥12,000",
+    alt: "2. Total Body Care トータル・ボディケア 全身 ¥12,000",
   },
   {
-    tier: "TIER 3",
+    number: "③",
     src: "/images/menu/menu-01-ultimate.jpg",
-    alt: "TIER 3 Ultimate Body Care アルティメット・ボディケア 究極 ¥20,000",
+    alt: "3. Ultimate Body Care アルティメット・ボディケア 究極 ¥20,000",
   },
 ];
 
@@ -26,13 +26,13 @@ export default function ServiceMenu() {
         <div className="text-center">
           <p className="text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            あなたのTierを、アップグレードしよう
+            あなたの身体を、アップグレードしよう
           </h2>
         </div>
 
         <div className="mt-14 space-y-10">
           {TIERS.map((item) => (
-            <div key={item.tier} className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
+            <div key={item.number} className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -48,7 +48,7 @@ export default function ServiceMenu() {
                   rel="noopener noreferrer"
                   className="w-full max-w-xs rounded-full bg-brand-blue px-6 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:text-base"
                 >
-                  {item.tier} をLINEで予約する
+                  {item.number}をLINEで予約する
                 </a>
               </div>
             </div>
