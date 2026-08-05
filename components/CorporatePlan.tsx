@@ -12,9 +12,8 @@ export default function CorporatePlan() {
           まるごとアップグレード
         </h2>
 
-        <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/90">
+        <p className="mx-auto mt-8 max-w-2xl text-left text-base leading-relaxed text-white/90">
           JFK、MOSH、T2K2をはじめ、複数のゲーミングチーム・企業様と継続契約中。
-          <br />
           チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
         </p>
 

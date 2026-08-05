@@ -7,7 +7,7 @@ export default function WhatIsEChiro() {
           e-CHIRO（イーカイロ）とは
         </h2>
 
-        <div className="mt-8 space-y-5 text-left text-base leading-relaxed text-neutral-700 sm:text-center">
+        <div className="mt-8 space-y-5 text-left text-base leading-relaxed text-neutral-700">
           <p>
             e-CHIROは、eスポーツ選手・ゲーマー・クリエイターの皆様のための出張型カイロプラクティックサービスです。
             長時間のプレイや配信で酷使される首・肩・腰・手首を、米国政府公認D.C.資格を持つ施術者が
