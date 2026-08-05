@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import WhatIsEChiro from "@/components/WhatIsEChiro";
 import About from "@/components/About";
 import LogoConcept from "@/components/LogoConcept";
 import WhyUs from "@/components/WhyUs";
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <WhatIsEChiro />
         <About />
         <LogoConcept />
         <WhyUs />
