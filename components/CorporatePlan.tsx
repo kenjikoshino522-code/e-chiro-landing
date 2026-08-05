@@ -1,0 +1,49 @@
+import Link from "next/link";
+import { LINE_URL, NOTE_URL } from "@/lib/constants";
+
+export default function CorporatePlan() {
+  return (
+    <section id="corporate" className="bg-brand-blue px-4 py-20 text-white sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
+        <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          チームのコンディションを、
+          <br className="sm:hidden" />
+          まるごとアップグレード
+        </h2>
+
+        <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-white/90">
+          JFK、MOSH、T2K2をはじめ、複数のゲーミングチーム・企業様と継続契約中。
+          <br />
+          チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
+        </p>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href={LINE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-brand-yellow px-8 py-4 text-base font-extrabold text-brand-blue shadow-lg transition hover:scale-[1.02]"
+          >
+            法人プランのご相談はこちら
+          </a>
+        </div>
+
+        <Link
+          href={NOTE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-14 flex flex-col gap-2 rounded-2xl bg-white/10 p-6 text-left transition hover:bg-white/15 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <p className="text-xs font-bold tracking-widest text-brand-yellow">COLUMN</p>
+            <p className="mt-2 text-sm font-medium leading-relaxed text-white">
+              福利厚生としてのマッサージ導入、何がどう変わる？生産性・エンゲージメント向上の実例を解説
+            </p>
+          </div>
+          <span className="whitespace-nowrap text-sm font-bold text-white/80">note記事を読む →</span>
+        </Link>
+      </div>
+    </section>
+  );
+}
