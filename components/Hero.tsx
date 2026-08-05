@@ -9,11 +9,19 @@ export default function Hero() {
       </h1>
       <div className="mx-auto max-w-6xl">
         <Image
-          src="/images/hero-banner.jpg"
+          src="/images/header-logo.jpg"
           alt={`e-CHIRO. ${SITE_TAGLINE_EN_LINE1} ${SITE_TAGLINE_EN_LINE2}`}
-          width={2000}
-          height={1125}
+          width={3000}
+          height={1000}
           priority
+          className="w-full"
+          sizes="100vw"
+        />
+        <Image
+          src="/images/hero-banner.jpg"
+          alt="サービスメニューと料金"
+          width={2400}
+          height={1260}
           className="w-full"
           sizes="100vw"
         />
