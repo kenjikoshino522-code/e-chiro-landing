@@ -17,14 +17,6 @@ export default function Hero() {
           className="w-full"
           sizes="100vw"
         />
-        <Image
-          src="/images/hero-banner.jpg"
-          alt="サービスメニューと料金"
-          width={2400}
-          height={1260}
-          className="w-full"
-          sizes="100vw"
-        />
       </div>
       <div className="flex justify-center bg-brand-blue px-4 pb-10 pt-2 sm:pb-14">
         <a
