@@ -1,56 +1,47 @@
+import Image from "next/image";
 import Link from "next/link";
 import { X_URL } from "@/lib/constants";
 
-const REVIEWS = [
-  {
-    name: "さいとう",
-    date: "2024/4/12",
-    title: "腰も肩も首もスッキリします",
-    body: "デスクワークの方はぜひとも受けてほしいです。もともと腰の痛みを気にしてましたが、全身は繋がってるとのことで、肩や首周りも合わせて見ていただき、施術後に明らかに上半身が軽くなりました。",
-  },
-  {
-    name: "きりまる。",
-    date: "2023/9/1",
-    title: "施術中すでに体の軽さを実感…！",
-    body: "施術で全身をみてもらい、食いしばりや腰の凝り、猫背になりかけていることなど、自分でもできるケアを細かく教えていただきました。横になっていても体がみるみる軽くなっていくのがわかりました。",
-  },
-  {
-    name: "Rino",
-    date: "2023/9/1",
-    title: "終わった後のスッキリ感が最高",
-    body: "長年のデスクワークで慢性的な肩こりに悩まされていましたが、終わった後の体のスッキリ感に驚きました。特に首周りの詰まりが解消されて、身体全身が軽くなったように感じました。",
-  },
-  {
-    name: "アケノ",
-    date: "2023/6/27",
-    title: "初めてのカイロプラクティック",
-    body: "接骨院で施術を受けてもなかなか改善しなかった首周りの問題もかなり改善されて、とても嬉しいです。共通の話題で楽しく会話しながら、終始リラックスして受けることができました。",
-  },
-  {
-    name: "スミス",
-    date: "2022/11/30",
-    title: "骨盤矯正で自己治癒力も上がる",
-    body: "カリステニクスというスポーツをしており、脳からの指令(神経系)がとても大切なため、こういった矯正はパフォーマンスを上げる為にも必要な施術と実感しています。アスリートにもオススメです。",
-  },
+const SCREENSHOTS = [
+  { src: "/images/testimonials/rayflitz.jpg", w: 570, h: 113, alt: "RayFlitzさんの投稿" },
+  { src: "/images/testimonials/saladin.jpg", w: 571, h: 180, alt: "皿さんの投稿" },
+  { src: "/images/testimonials/furoshiki.jpg", w: 563, h: 172, alt: "フロシキラボさんの投稿" },
+  { src: "/images/testimonials/dendaira-1.jpg", w: 556, h: 243, alt: "田平孝太郎さんの投稿" },
+  { src: "/images/testimonials/dendaira-2.jpg", w: 555, h: 197, alt: "田平孝太郎さんの投稿" },
+  { src: "/images/testimonials/dendaira-3.jpg", w: 545, h: 211, alt: "田平孝太郎さんの投稿" },
+  { src: "/images/testimonials/dendaira-4.jpg", w: 578, h: 106, alt: "田平孝太郎さんの投稿" },
+  { src: "/images/testimonials/tsuchiya.jpg", w: 561, h: 282, alt: "SG_Tsuchiyaさんの投稿" },
+  { src: "/images/testimonials/hazuki.jpg", w: 571, h: 506, alt: "葉月あすかさんの投稿" },
+  { src: "/images/testimonials/ao.png", w: 586, h: 211, alt: "VARREL AOさんの投稿" },
+  { src: "/images/testimonials/aoyama.jpg", w: 578, h: 220, alt: "EQNX AOYAMA333さんの投稿" },
+  { src: "/images/testimonials/arurun.png", w: 589, h: 563, alt: "arurunさんの投稿" },
+  { src: "/images/testimonials/murai.png", w: 585, h: 420, alt: "Ryosuke Muraiさんの投稿" },
+  { src: "/images/testimonials/fighter.png", w: 581, h: 603, alt: "FIREWORKSさんの投稿" },
+  { src: "/images/testimonials/hagihara.png", w: 587, h: 641, alt: "Junpei Hagiharaさんの投稿" },
+  { src: "/images/testimonials/hasegawa.png", w: 460, h: 513, alt: "長谷川優貴さんの投稿" },
+  { src: "/images/testimonials/hokuto.png", w: 587, h: 507, alt: "Hokutoさんの投稿" },
+  { src: "/images/testimonials/ikari.png", w: 505, h: 652, alt: "KN iKARiさんの投稿" },
+  { src: "/images/testimonials/miitan.png", w: 581, h: 221, alt: "みいたん。さんの投稿" },
+  { src: "/images/testimonials/moruko.png", w: 467, h: 107, alt: "モル子さんの投稿" },
 ];
 
-function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
+function ShotCard({ shot }: { shot: (typeof SCREENSHOTS)[number] }) {
   return (
-    <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm sm:w-[340px]">
-      <div className="flex items-center gap-1 text-brand-yellow" aria-hidden="true">
-        {"★★★★★"}
-      </div>
-      <p className="mt-3 text-sm font-bold text-neutral-900">{review.title}</p>
-      <p className="mt-2 line-clamp-4 text-sm leading-relaxed text-neutral-600">{review.body}</p>
-      <p className="mt-4 text-xs font-medium text-neutral-400">
-        {review.name} ・ {review.date}
-      </p>
+    <div className="w-[280px] flex-none overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm sm:w-[320px]">
+      <Image
+        src={shot.src}
+        alt={shot.alt}
+        width={shot.w}
+        height={shot.h}
+        className="h-auto w-full"
+        sizes="320px"
+      />
     </div>
   );
 }
 
 export default function Voice() {
-  const track = [...REVIEWS, ...REVIEWS];
+  const track = [...SCREENSHOTS, ...SCREENSHOTS];
 
   return (
     <section id="voice" className="bg-white py-20 sm:py-28">
@@ -61,26 +52,24 @@ export default function Voice() {
         </h2>
         <div className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-neutral-700">
           <span className="text-brand-yellow">★★★★★</span>
-          <span>5.0（13件のレビュー）</span>
+          <span>5.0（MOSHレビュー13件）</span>
         </div>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
-          施術を受けたお客様から、たくさんの声をいただいています。
+          施術を受けた選手・配信者の皆さまから、たくさんの声をいただいています。
         </p>
       </div>
 
       <div className="group relative mt-12 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
-        <div className="flex w-max gap-6 px-6 animate-marquee group-hover:[animation-play-state:paused]">
-          {track.map((review, i) => (
-            <ReviewCard key={`${review.name}-${i}`} review={review} />
+        <div className="flex w-max items-center gap-6 px-6 animate-marquee group-hover:[animation-play-state:paused]">
+          {track.map((shot, i) => (
+            <ShotCard key={`${shot.src}-${i}`} shot={shot} />
           ))}
         </div>
       </div>
 
       <div className="mx-auto mt-4 max-w-4xl px-4 text-center sm:px-6">
-        <p className="text-xs text-neutral-400">レビュー出典: MOSH予約ページ「e-CHIRO」</p>
-
         <Link
           href={X_URL}
           target="_blank"
