@@ -24,9 +24,9 @@ export default function Home() {
         <WhyUs />
         <ServiceMenu />
         <ReservationForm />
-        <CorporatePlan />
-        <PaymentMethod />
         <Voice />
+        <PaymentMethod />
+        <CorporatePlan />
         <FinalCta />
       </main>
       <Footer />
