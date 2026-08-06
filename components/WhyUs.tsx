@@ -33,7 +33,7 @@ export default function WhyUs() {
               key={pillar.number}
               className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="text-3xl font-black text-brand-blue/20">{pillar.number}</span>
+              <span className="text-3xl font-black text-brand-blue">{pillar.number}</span>
               <h3 className="mt-4 text-lg font-bold leading-snug text-neutral-900">
                 {pillar.title}
               </h3>

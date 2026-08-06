@@ -9,6 +9,9 @@ export default function PaymentMethod() {
           <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             決済方法
           </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
+            キャッシュレス決済に加えて、現金でのお支払いも可能です。
+          </p>
         </div>
 
         <div className="mt-10 overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">

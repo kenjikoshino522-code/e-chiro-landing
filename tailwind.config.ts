@@ -7,7 +7,7 @@ const config: Config = {
       colors: {
         brand: {
           blue: "#1E00DC",
-          yellow: "#F5D800",
+          yellow: "#FFE600",
         },
       },
       fontFamily: {
