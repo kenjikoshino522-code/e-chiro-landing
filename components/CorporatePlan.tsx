@@ -13,7 +13,7 @@ export default function CorporatePlan() {
         </h2>
 
         <p className="mx-auto mt-8 max-w-2xl text-left text-base leading-relaxed text-white/90">
-          JFK、MOSH、T2K2をはじめ、複数のゲーミングチーム・企業様と継続契約中。
+          複数のゲーミングチーム・企業様と継続契約中。
           チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
         </p>
 
@@ -32,15 +32,15 @@ export default function CorporatePlan() {
           href={NOTE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-14 flex flex-col gap-2 rounded-2xl bg-white/10 p-6 text-left transition hover:bg-white/15 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-14 flex flex-col gap-3 rounded-2xl bg-white p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl sm:flex-row sm:items-center sm:justify-between"
         >
           <div>
-            <p className="text-xs font-bold tracking-widest text-brand-yellow">COLUMN</p>
-            <p className="mt-2 text-sm font-medium leading-relaxed text-white">
+            <p className="text-xs font-bold tracking-widest text-brand-blue">COLUMN</p>
+            <p className="mt-2 text-sm font-medium leading-relaxed text-neutral-900">
               福利厚生としてのマッサージ導入、何がどう変わる？生産性・エンゲージメント向上の実例を解説
             </p>
           </div>
-          <span className="whitespace-nowrap text-sm font-bold text-white/80">note記事を読む →</span>
+          <span className="whitespace-nowrap text-sm font-bold text-brand-blue">note記事を読む →</span>
         </Link>
       </div>
     </section>

@@ -16,9 +16,9 @@ export const COMPANY_PHONE_NOTE = "請求があれば遅滞なく開示いたし
 export const RESERVATION_MENUS = [
   {
     id: "1",
-    label: "① Neck & Arm Care（ネック&アームケア）",
-    price: "¥5,000",
-    squareLink: "https://square.link/u/YkMdtTVn",
+    label: "① Ultimate Body Care（アルティメット・ボディケア）",
+    price: "¥20,000",
+    squareLink: "https://square.link/u/XDw9iAyC",
   },
   {
     id: "2",
@@ -28,8 +28,8 @@ export const RESERVATION_MENUS = [
   },
   {
     id: "3",
-    label: "③ Ultimate Body Care（アルティメット・ボディケア）",
-    price: "¥20,000",
-    squareLink: "https://square.link/u/XDw9iAyC",
+    label: "③ Neck & Arm Care（ネック&アームケア）",
+    price: "¥5,000",
+    squareLink: "https://square.link/u/YkMdtTVn",
   },
 ] as const;
