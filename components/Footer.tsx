@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONTACT_EMAIL, LINE_URL, X_URL } from "@/lib/constants";
+import { LINE_URL, X_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -30,12 +30,6 @@ export default function Footer() {
             className="flex min-h-11 items-center px-2 hover:text-white"
           >
             X (@echiro_dc)
-          </a>
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="flex min-h-11 items-center px-2 hover:text-white"
-          >
-            {CONTACT_EMAIL}
           </a>
           <Link href="/tokushoho" className="flex min-h-11 items-center px-2 hover:text-white">
             特定商取引法に基づく表記

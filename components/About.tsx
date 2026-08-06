@@ -19,12 +19,7 @@ export default function About() {
           </h2>
 
           <div className="mt-8">
-            <p className="text-2xl font-extrabold text-neutral-900">
-              Dr.KEN
-              <span className="ml-2 text-base font-medium text-neutral-500">
-                ケネス・ラッセル／越野兼次
-              </span>
-            </p>
+            <p className="text-2xl font-extrabold text-neutral-900">Dr.KEN</p>
             <p className="mt-1 text-sm font-medium text-neutral-600">
               代表取締役｜米国政府公認D.C.｜米国理学療法士｜元プロゲーマー
             </p>
