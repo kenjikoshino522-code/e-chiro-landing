@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
 import About from "@/components/About";
 import LogoConcept from "@/components/LogoConcept";
+import PageLinkBanner from "@/components/PageLinkBanner";
 import WhyUs from "@/components/WhyUs";
 import ServiceMenu from "@/components/ServiceMenu";
 import ReservationFlow from "@/components/ReservationFlow";
@@ -22,6 +23,13 @@ export default function Home() {
         <WhatIsEChiro />
         <About />
         <LogoConcept />
+        <PageLinkBanner
+          eyebrow="COMIC"
+          title="漫画でもっと知るe-CHIRO"
+          description="e-CHIROのサービスやDr.KENのことを、漫画でわかりやすく紹介しています。"
+          href="/manga"
+          buttonLabel="漫画を見る →"
+        />
         <WhyUs />
         <ServiceMenu />
         <ReservationFlow />
@@ -29,6 +37,13 @@ export default function Home() {
         <Voice />
         <PaymentMethod />
         <CorporatePlan />
+        <PageLinkBanner
+          eyebrow="MERCHANDISE"
+          title="e-CHIROオリジナルグッズ"
+          description="刺繍ロゴ入りのオリジナルTシャツも販売中です。"
+          href="/tshirts"
+          buttonLabel="グッズを見る →"
+        />
         <FinalCta />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ZoomableGallery from "@/components/ZoomableGallery";
 import { LINE_URL, X_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -49,28 +49,18 @@ export default function TshirtsPage() {
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
               Organic Cotton（オーガニックコットン）を使用した、e-CHIROロゴ入りTシャツです。
             </p>
+            <p className="mx-auto mt-2 max-w-md text-sm font-bold text-brand-blue">
+              ロゴはプリントではなく、一枚一枚丁寧な刺繍仕上げ。
+            </p>
+            <p className="mt-3 text-xs text-neutral-400">画像タップで拡大表示できます</p>
           </div>
 
           <div className="mt-16 space-y-16">
             {COLORS.map((color) => (
               <div key={color.name}>
                 <h2 className="text-lg font-bold text-neutral-900">{color.name}</h2>
-                <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {color.images.map((img) => (
-                    <div
-                      key={img.src}
-                      className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm"
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        width={2400}
-                        height={1260}
-                        className="w-full"
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      />
-                    </div>
-                  ))}
+                <div className="mt-4">
+                  <ZoomableGallery images={color.images} />
                 </div>
               </div>
             ))}
