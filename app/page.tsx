@@ -5,6 +5,7 @@ import About from "@/components/About";
 import LogoConcept from "@/components/LogoConcept";
 import WhyUs from "@/components/WhyUs";
 import ServiceMenu from "@/components/ServiceMenu";
+import ReservationForm from "@/components/ReservationForm";
 import CorporatePlan from "@/components/CorporatePlan";
 import PaymentMethod from "@/components/PaymentMethod";
 import Voice from "@/components/Voice";
@@ -22,6 +23,7 @@ export default function Home() {
         <LogoConcept />
         <WhyUs />
         <ServiceMenu />
+        <ReservationForm />
         <CorporatePlan />
         <PaymentMethod />
         <Voice />
