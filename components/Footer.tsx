@@ -37,6 +37,9 @@ export default function Footer() {
           >
             {CONTACT_EMAIL}
           </a>
+          <Link href="/tokushoho" className="flex min-h-11 items-center px-2 hover:text-white">
+            特定商取引法に基づく表記
+          </Link>
         </div>
 
         <p className="max-w-md text-xs leading-relaxed text-white/40">

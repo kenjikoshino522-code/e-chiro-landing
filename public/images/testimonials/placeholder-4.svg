@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" rx="20" fill="#F4F4F5"/>
+  <rect x="4" y="4" width="392" height="492" rx="16" fill="none" stroke="#D4D4D8" stroke-width="2" stroke-dasharray="8 8"/>
+  <circle cx="60" cy="60" r="24" fill="#D4D4D8"/>
+  <rect x="96" y="42" width="120" height="14" rx="7" fill="#D4D4D8"/>
+  <rect x="96" y="64" width="80" height="10" rx="5" fill="#E4E4E7"/>
+  <rect x="40" y="110" width="320" height="10" rx="5" fill="#E4E4E7"/>
+  <rect x="40" y="130" width="300" height="10" rx="5" fill="#E4E4E7"/>
+  <rect x="40" y="150" width="260" height="10" rx="5" fill="#E4E4E7"/>
+  <text x="200" y="260" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#A1A1AA">TESTIMONIAL</text>
+  <text x="200" y="288" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#A1A1AA">Screenshot placeholder #4</text>
+  <text x="200" y="470" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#D4D4D8">差し替え予定 / to be replaced</text>
+</svg>
