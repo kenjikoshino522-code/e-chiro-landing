@@ -23,22 +23,28 @@ const TESTIMONIALS = [
 ];
 
 export default function TestimonialGrid() {
+  const track = [...TESTIMONIALS, ...TESTIMONIALS];
+
   return (
-    <div className="mx-auto mt-16 max-w-6xl px-4 sm:px-6">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
-        {TESTIMONIALS.map((item) => (
+    <div className="group relative mt-16 overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
+      <div className="flex w-max gap-5 px-6 animate-marquee-slow group-hover:[animation-play-state:paused]">
+        {track.map((item, i) => (
           <div
-            key={item.src}
-            className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm"
+            key={`${item.src}-${i}`}
+            className="w-56 flex-none overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-transform duration-300 ease-out hover:z-20 hover:scale-125"
           >
-            <Image
-              src={item.src}
-              alt={`${item.role} ${item.name} の投稿`}
-              width={item.w}
-              height={item.h}
-              className="w-full"
-              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-            />
+            <div className="flex h-64 items-center justify-center bg-neutral-50">
+              <Image
+                src={item.src}
+                alt={`${item.role} ${item.name} の投稿`}
+                width={item.w}
+                height={item.h}
+                className="max-h-64 w-full object-contain"
+                sizes="224px"
+              />
+            </div>
             <div className="border-t border-neutral-200 bg-neutral-50 px-3 py-2">
               <p className="text-[11px] font-medium text-neutral-400">{item.role}</p>
               <p className="text-sm font-bold text-neutral-900">{item.name}</p>

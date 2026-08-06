@@ -37,7 +37,7 @@ const REVIEWS = [
 
 function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
   return (
-    <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm sm:w-[340px]">
+    <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-transform duration-300 ease-out hover:z-20 hover:scale-125 sm:w-[340px]">
       <div className="flex items-center gap-1 text-brand-yellow" aria-hidden="true">
         {"★★★★★"}
       </div>
