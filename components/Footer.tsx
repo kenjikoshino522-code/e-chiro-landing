@@ -31,6 +31,12 @@ export default function Footer() {
           >
             X (@echiro_dc)
           </a>
+          <Link href="/manga" className="flex min-h-11 items-center px-2 hover:text-white">
+            漫画アーカイブ
+          </Link>
+          <Link href="/tshirts" className="flex min-h-11 items-center px-2 hover:text-white">
+            オリジナルグッズ
+          </Link>
           <Link href="/tokushoho" className="flex min-h-11 items-center px-2 hover:text-white">
             特定商取引法に基づく表記
           </Link>
