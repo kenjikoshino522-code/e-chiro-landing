@@ -60,10 +60,6 @@ export default function Voice() {
         <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
           Tier UPを実感した声
         </h2>
-        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-neutral-700">
-          <span className="text-brand-yellow">★★★★★</span>
-          <span>5.0（13件のレビュー）</span>
-        </div>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
           施術を受けたお客様から、たくさんの声をいただいています。
         </p>
