@@ -2,8 +2,8 @@ export default function WhatIsEChiro() {
   return (
     <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm font-bold tracking-widest text-brand-blue">WHAT IS e-CHIRO</p>
-        <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+        <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">WHAT IS e-CHIRO</p>
+        <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
           e-CHIRO（イーカイロ）とは
         </h2>
 

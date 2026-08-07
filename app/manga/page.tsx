@@ -20,8 +20,8 @@ export default function MangaPage() {
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
-            <p className="text-sm font-bold tracking-widest text-brand-blue">COMIC</p>
-            <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">COMIC</p>
+            <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               漫画アーカイブ
             </h1>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
@@ -35,7 +35,7 @@ export default function MangaPage() {
             <div className="mt-16 space-y-20">
               {SERIES.map((series) => (
                 <div key={series.title}>
-                  <h2 className="text-xl font-bold text-neutral-900">{series.title}</h2>
+                  <h2 className="font-heading text-xl font-bold text-neutral-900">{series.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-600">{series.description}</p>
                 </div>
               ))}

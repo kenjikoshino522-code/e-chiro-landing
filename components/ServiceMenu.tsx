@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LINE_URL } from "@/lib/constants";
+import FadeIn from "@/components/FadeIn";
 
 const TIERS = [
   {
@@ -73,49 +74,51 @@ export default function ServiceMenu() {
       />
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             あなたの身体を、アップグレードしよう
           </h2>
         </div>
 
         <div className="mt-14 space-y-10">
-          {TIERS.map((item) => (
-            <div key={item.number} className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={2000}
-                height={1125}
-                className="w-full"
-                sizes="(min-width: 1024px) 960px, 100vw"
-              />
+          {TIERS.map((item, i) => (
+            <FadeIn key={item.number} delay={i * 100}>
+              <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={2000}
+                  height={1125}
+                  className="w-full"
+                  sizes="(min-width: 1024px) 960px, 100vw"
+                />
 
-              <div className="border-t border-neutral-200 px-6 py-6 sm:px-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="text-lg font-bold text-neutral-900">
-                    {item.number} {item.nameEn}
-                    <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
-                  </h3>
-                  <span className="text-xl font-extrabold text-brand-blue">{item.price}</span>
+                <div className="border-t border-neutral-200 px-6 py-6 sm:px-8">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h3 className="font-heading text-lg font-bold text-neutral-900">
+                      {item.number} {item.nameEn}
+                      <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
+                    </h3>
+                    <span className="text-xl font-extrabold text-brand-blue">{item.price}</span>
+                  </div>
+                  <p className="mt-1 text-sm font-medium text-neutral-500">
+                    {item.part}｜{item.duration}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.description}</p>
                 </div>
-                <p className="mt-1 text-sm font-medium text-neutral-500">
-                  {item.part}｜{item.duration}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.description}</p>
-              </div>
 
-              <div className="flex justify-center bg-neutral-50 px-4 py-6">
-                <a
-                  href={LINE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full max-w-xs rounded-full bg-brand-blue px-6 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:text-base"
-                >
-                  {item.number}をLINEで予約する
-                </a>
+                <div className="flex justify-center bg-neutral-50 px-4 py-6">
+                  <a
+                    href={LINE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full max-w-xs rounded-full bg-brand-blue px-6 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:text-base"
+                  >
+                    {item.number}をLINEで予約する
+                  </a>
+                </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>

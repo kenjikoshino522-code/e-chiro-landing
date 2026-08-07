@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { LINE_URL, NOTE_URL } from "@/lib/constants";
+import { CONTACT_EMAIL, NOTE_URL } from "@/lib/constants";
 
 export default function CorporatePlan() {
   return (
     <section id="corporate" className="bg-brand-blue px-4 py-20 text-white sm:px-6 sm:py-28">
       <div className="mx-auto max-w-4xl text-center">
-        <p className="text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
-        <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <p className="font-heading text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
+        <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
           チームのコンディションを、
           <br className="sm:hidden" />
           まるごとアップグレード
@@ -19,9 +19,7 @@ export default function CorporatePlan() {
 
         <div className="mt-10 flex justify-center">
           <a
-            href={LINE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="rounded-full bg-brand-yellow px-8 py-4 text-base font-extrabold text-brand-blue shadow-lg transition hover:scale-[1.02]"
           >
             法人プランのご相談はこちら

@@ -11,7 +11,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-noto-sans-jp)", "var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-zen-kaku)", "sans-serif"],
+        heading: ["var(--font-chakra-petch)", "var(--font-zen-kaku)", "sans-serif"],
       },
       keyframes: {
         marquee: {

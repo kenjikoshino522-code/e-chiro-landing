@@ -4,8 +4,8 @@ export default function FinalCta() {
   return (
     <section className="bg-neutral-950 px-4 py-24 text-center text-white sm:px-6 sm:py-32">
       <div className="mx-auto max-w-3xl">
-        <p className="text-sm font-bold tracking-widest text-brand-yellow">READY?</p>
-        <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
+        <p className="font-heading text-sm font-bold tracking-widest text-brand-yellow">READY?</p>
+        <h2 className="mt-3 font-heading text-4xl font-black tracking-tight sm:text-5xl">
           LEVEL UP YOUR BODY
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/70">

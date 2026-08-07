@@ -76,7 +76,7 @@ const TESTIMONIALS: (PhotoTestimonial | TextTestimonial)[] = [
 ];
 
 const CARD_CLASS =
-  "w-56 flex-none overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-transform duration-300 ease-out hover:z-20 hover:scale-125";
+  "w-56 flex-none overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg";
 
 function TestimonialCard({ item }: { item: (typeof TESTIMONIALS)[number] }) {
   if (item.type === "text") {

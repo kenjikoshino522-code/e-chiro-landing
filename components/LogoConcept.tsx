@@ -4,7 +4,7 @@ export default function LogoConcept() {
   return (
     <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-bold tracking-widest text-brand-blue">LOGO CONCEPT</p>
+        <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LOGO CONCEPT</p>
 
         <div className="mt-10 grid items-center gap-12 md:grid-cols-2 md:gap-16">
           <div className="group flex justify-center md:order-2">
@@ -20,7 +20,7 @@ export default function LogoConcept() {
           </div>
 
           <div className="md:order-1">
-            <h2 className="text-2xl font-extrabold leading-snug text-neutral-900 sm:text-3xl">
+            <h2 className="font-heading text-2xl font-extrabold leading-snug text-neutral-900 sm:text-3xl">
               BONE × <ruby>
                 カイロプラクティック<rp>(</rp><rt className="text-xs font-normal text-neutral-400">カイロ</rt><rp>)</rp>
               </ruby>{" "}

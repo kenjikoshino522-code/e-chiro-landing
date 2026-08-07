@@ -37,7 +37,7 @@ const REVIEWS = [
 
 function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
   return (
-    <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-transform duration-300 ease-out hover:z-20 hover:scale-125 sm:w-[340px]">
+    <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-[340px]">
       <div className="flex items-center gap-1 text-brand-yellow" aria-hidden="true">
         {"★★★★★"}
       </div>
@@ -56,8 +56,8 @@ export default function Voice() {
   return (
     <section id="voice" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-        <p className="text-sm font-bold tracking-widest text-brand-blue">VOICE OF PLAYERS</p>
-        <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+        <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">VOICE OF PLAYERS</p>
+        <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
           Tier UPを実感した声
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">

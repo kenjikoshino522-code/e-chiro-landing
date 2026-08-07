@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Inter } from "next/font/google";
+import { Zen_Kaku_Gothic_New, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/constants";
 
-const notoSansJP = Noto_Sans_JP({
+const zenKakuGothicNew = Zen_Kaku_Gothic_New({
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
-  variable: "--font-noto-sans-jp",
+  variable: "--font-zen-kaku",
   display: "swap",
 });
 
-const inter = Inter({
+const chakraPetch = Chakra_Petch({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800", "900"],
-  variable: "--font-inter",
+  weight: ["500", "700"],
+  variable: "--font-chakra-petch",
   display: "swap",
 });
 
@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJP.variable} ${inter.variable}`}>
+    <html lang="ja" className={`${zenKakuGothicNew.variable} ${chakraPetch.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

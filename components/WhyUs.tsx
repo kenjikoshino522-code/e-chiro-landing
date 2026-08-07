@@ -1,3 +1,5 @@
+import FadeIn from "@/components/FadeIn";
+
 const PILLARS = [
   {
     number: "01",
@@ -21,24 +23,23 @@ export default function WhyUs() {
     <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">WHY UPGRADE WITH US</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">WHY UPGRADE WITH US</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             なぜe-CHIROが選ばれるのか
           </h2>
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
-          {PILLARS.map((pillar) => (
-            <div
-              key={pillar.number}
-              className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <span className="text-3xl font-black text-brand-blue">{pillar.number}</span>
-              <h3 className="mt-4 text-lg font-bold leading-snug text-neutral-900">
-                {pillar.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-neutral-600">{pillar.body}</p>
-            </div>
+          {PILLARS.map((pillar, i) => (
+            <FadeIn key={pillar.number} delay={i * 100}>
+              <div className="h-full rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <span className="font-heading text-3xl font-black text-brand-blue">{pillar.number}</span>
+                <h3 className="mt-4 font-heading text-lg font-bold leading-snug text-neutral-900">
+                  {pillar.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">{pillar.body}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>

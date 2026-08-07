@@ -55,8 +55,8 @@ export default function ReservationForm() {
     return (
       <section id="reserve" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-neutral-50 p-8 text-center shadow-sm sm:p-12">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">RESERVED</p>
-          <h2 className="mt-2 text-2xl font-extrabold text-neutral-900 sm:text-3xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVED</p>
+          <h2 className="mt-2 font-heading text-2xl font-extrabold text-neutral-900 sm:text-3xl">
             ご予約リクエストを受け付けました
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
@@ -85,8 +85,8 @@ export default function ReservationForm() {
     <section id="reserve" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-xl">
         <div className="text-center">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">RESERVATION</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVATION</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             サイトから予約する
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">

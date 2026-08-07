@@ -12,9 +12,9 @@ export default function About() {
   return (
     <section id="about" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-start gap-10 md:grid-cols-2 md:gap-16">
-        <div className="order-2 md:order-1">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">ABOUT</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+        <div>
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">ABOUT</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             施術者紹介
           </h2>
 
@@ -46,15 +46,15 @@ export default function About() {
           </div>
         </div>
 
-        <div className="order-1 md:order-2">
-          <div className="overflow-hidden rounded-2xl bg-brand-blue">
+        <div>
+          <div className="mx-auto max-w-[280px] overflow-hidden rounded-2xl bg-brand-blue md:max-w-none">
             <Image
               src="/images/dr-ken-headshot.jpg"
               alt="Dr.KEN"
               width={1080}
               height={1080}
               className="h-full w-full object-cover"
-              sizes="(min-width: 768px) 480px, 100vw"
+              sizes="(min-width: 768px) 480px, 280px"
             />
           </div>
         </div>

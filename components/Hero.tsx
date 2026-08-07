@@ -4,7 +4,7 @@ import { LINE_URL, SITE_TAGLINE_EN_LINE1, SITE_TAGLINE_EN_LINE2 } from "@/lib/co
 export default function Hero() {
   return (
     <section id="top" className="bg-brand-blue">
-      <h1 className="sr-only">
+      <h1 className="sr-only font-heading">
         e-CHIRO | {SITE_TAGLINE_EN_LINE1} {SITE_TAGLINE_EN_LINE2}
       </h1>
       <div className="mx-auto max-w-6xl">

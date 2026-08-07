@@ -5,8 +5,8 @@ export default function PaymentMethod() {
     <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">PAYMENT METHOD</p>
-          <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">PAYMENT METHOD</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             決済方法
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">

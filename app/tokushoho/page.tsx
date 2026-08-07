@@ -58,8 +58,8 @@ export default function TokushohoPage() {
       <Header />
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-sm font-bold tracking-widest text-brand-blue">LEGAL</p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LEGAL</p>
+          <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             特定商取引法に基づく表記
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-neutral-500">

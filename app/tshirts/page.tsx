@@ -42,8 +42,8 @@ export default function TshirtsPage() {
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
-            <p className="text-sm font-bold tracking-widest text-brand-blue">MERCHANDISE</p>
-            <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">MERCHANDISE</p>
+            <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               e-CHIRO オリジナルTシャツ
             </h1>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
@@ -52,13 +52,16 @@ export default function TshirtsPage() {
             <p className="mx-auto mt-2 max-w-md text-sm font-bold text-brand-blue">
               ロゴはプリントではなく、一枚一枚丁寧な刺繍仕上げ。
             </p>
+            <p className="mt-4 font-heading text-2xl font-extrabold text-brand-blue">
+              ¥5,970<span className="ml-1 font-sans text-sm font-medium text-neutral-500">(税込)</span>
+            </p>
             <p className="mt-3 text-xs text-neutral-400">画像タップで拡大表示できます</p>
           </div>
 
           <div className="mt-16 space-y-16">
             {COLORS.map((color) => (
               <div key={color.name}>
-                <h2 className="text-lg font-bold text-neutral-900">{color.name}</h2>
+                <h2 className="font-heading text-lg font-bold text-neutral-900">{color.name}</h2>
                 <div className="mt-4">
                   <ZoomableGallery images={color.images} />
                 </div>
@@ -94,7 +97,7 @@ export default function TshirtsPage() {
 
           <div className="mx-auto mt-16 max-w-xl rounded-2xl bg-neutral-50 p-8 text-center">
             <p className="text-sm leading-relaxed text-neutral-700">
-              価格・ご購入方法はLINE公式アカウントまたはXのDMよりお気軽にお問い合わせください。
+              ご購入方法はLINE公式アカウントまたはXのDMよりお気軽にお問い合わせください。
             </p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
               <a
