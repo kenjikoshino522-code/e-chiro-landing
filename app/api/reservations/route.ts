@@ -58,12 +58,12 @@ function buildNotificationLines(payload: ReservationPayload) {
   ].filter(Boolean);
 }
 
-async function sendLineNotification(payload: ReservationPayload) {
+async function sendLineNotification(payload: ReservationPayload): Promise<boolean> {
   const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
   const userId = process.env.LINE_ADMIN_USER_ID;
-  if (!token || !userId) return;
+  if (!token || !userId) return false;
 
-  await fetch("https://api.line.me/v2/bot/message/push", {
+  const res = await fetch("https://api.line.me/v2/bot/message/push", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -74,6 +74,8 @@ async function sendLineNotification(payload: ReservationPayload) {
       messages: [{ type: "text", text: buildNotificationLines(payload).join("\n") }],
     }),
   });
+
+  return res.ok;
 }
 
 async function sendEmailNotification(payload: ReservationPayload): Promise<boolean> {
@@ -114,8 +116,8 @@ export async function POST(request: Request) {
     );
   }
 
-  // Supabase is optional — the reservation still goes through as long as at
-  // least one of {database save, email notification} succeeds below.
+  // Supabase/email/LINE are all optional — the reservation goes through as
+  // long as at least one of the three actually succeeds below.
   let savedToDatabase = false;
   const supabase = getSupabaseServerClient();
   if (supabase) {
@@ -138,13 +140,14 @@ export async function POST(request: Request) {
     emailSent = false;
   }
 
+  let lineSent = false;
   try {
-    await sendLineNotification(body);
+    lineSent = await sendLineNotification(body);
   } catch {
-    // LINE is a best-effort extra channel; it never determines the response.
+    lineSent = false;
   }
 
-  if (!savedToDatabase && !emailSent) {
+  if (!savedToDatabase && !emailSent && !lineSent) {
     return NextResponse.json(
       { ok: false, error: "予約フォームの設定が完了していません。しばらくしてから再度お試しください。" },
       { status: 500 }
