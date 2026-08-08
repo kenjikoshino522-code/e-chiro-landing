@@ -12,10 +12,15 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
+  *:not(.animate-marquee):not(.animate-marquee-slow),
   *::before,
   *::after {
     animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
     transition: none !important;
     scroll-behavior: auto !important;
   }

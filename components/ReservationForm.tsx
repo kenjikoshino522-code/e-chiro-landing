@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import CtaButton from "@/components/CtaButton";
+import FadeIn from "@/components/FadeIn";
 import { RESERVATION_MENUS } from "@/lib/constants";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -55,10 +57,12 @@ export default function ReservationForm() {
     return (
       <section id="reserve" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-neutral-50 p-8 text-center shadow-sm sm:p-12">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVED</p>
-          <h2 className="mt-2 font-heading text-2xl font-extrabold text-neutral-900 sm:text-3xl">
-            ご予約リクエストを受け付けました
-          </h2>
+          <FadeIn variant="scale">
+            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVED</p>
+            <h2 className="mt-2 font-heading text-2xl font-extrabold text-neutral-900 sm:text-3xl">
+              ご予約リクエストを受け付けました
+            </h2>
+          </FadeIn>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
             内容を確認の上、担当より折り返しご連絡いたします。決済は以下のリンクより事前にお済ませいただけます。
           </p>
@@ -68,14 +72,13 @@ export default function ReservationForm() {
             <p className="text-lg font-extrabold text-brand-blue">{confirmedMenu.price}</p>
           </div>
 
-          <a
+          <CtaButton
             href={confirmedMenu.squareLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-block w-full rounded-full bg-brand-blue px-8 py-4 text-center text-base font-extrabold text-white shadow-lg transition hover:opacity-90"
+            variant="blue"
+            className="mt-6 block w-full rounded-full px-8 py-4 text-center text-base font-extrabold shadow-lg"
           >
             決済ページへ進む
-          </a>
+          </CtaButton>
         </div>
       </section>
     );
@@ -85,13 +88,17 @@ export default function ReservationForm() {
     <section id="reserve" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-xl">
         <div className="text-center">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVATION</p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            サイトから予約する
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
-            以下のフォームからもご予約いただけます。お急ぎの方はLINEでのご相談もご利用ください。
-          </p>
+          <FadeIn variant="scale">
+            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVATION</p>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              サイトから予約する
+            </h2>
+          </FadeIn>
+          <FadeIn variant="fade" delay={150}>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
+              以下のフォームからもご予約いただけます。お急ぎの方はLINEでのご相談もご利用ください。
+            </p>
+          </FadeIn>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-10 space-y-6">

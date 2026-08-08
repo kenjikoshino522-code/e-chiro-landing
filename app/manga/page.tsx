@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "漫画アーカイブ | e-CHIRO",
@@ -20,13 +21,17 @@ export default function MangaPage() {
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">COMIC</p>
-            <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-              漫画アーカイブ
-            </h1>
-            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
-              e-CHIROがどんなサービスか、漫画でわかりやすく紹介しています。
-            </p>
+            <FadeIn variant="scale">
+              <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">COMIC</p>
+              <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+                漫画アーカイブ
+              </h1>
+            </FadeIn>
+            <FadeIn variant="fade" delay={150}>
+              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
+                e-CHIROがどんなサービスか、漫画でわかりやすく紹介しています。
+              </p>
+            </FadeIn>
           </div>
 
           {SERIES.length === 0 ? (

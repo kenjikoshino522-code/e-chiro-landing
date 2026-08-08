@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { LINE_URL } from "@/lib/constants";
+import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
+import CountUp from "@/components/CountUp";
+
+const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
 
 const TIERS = [
   {
@@ -73,16 +77,16 @@ export default function ServiceMenu() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="mx-auto max-w-5xl">
-        <div className="text-center">
+        <FadeIn variant="scale" className="text-center">
           <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             あなたの身体を、アップグレードしよう
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="mt-14 space-y-10">
           {TIERS.map((item, i) => (
-            <FadeIn key={item.number} delay={i * 100}>
+            <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120}>
               <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <Image
                   src={item.src}
@@ -99,7 +103,9 @@ export default function ServiceMenu() {
                       {item.number} {item.nameEn}
                       <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
                     </h3>
-                    <span className="text-xl font-extrabold text-brand-blue">{item.price}</span>
+                    <span className="text-xl font-extrabold text-brand-blue">
+                      <CountUp value={Number(item.price.replace(/[^0-9]/g, ""))} prefix="¥" />
+                    </span>
                   </div>
                   <p className="mt-1 text-sm font-medium text-neutral-500">
                     {item.part}｜{item.duration}
@@ -108,14 +114,13 @@ export default function ServiceMenu() {
                 </div>
 
                 <div className="flex justify-center bg-neutral-50 px-4 py-6">
-                  <a
+                  <CtaButton
                     href={LINE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full max-w-xs rounded-full bg-brand-blue px-6 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:text-base"
+                    variant="blue"
+                    className="w-full max-w-xs rounded-full px-6 py-3 text-center text-sm font-bold sm:text-base"
                   >
                     {item.number}をLINEで予約する
-                  </a>
+                  </CtaButton>
                 </div>
               </div>
             </FadeIn>

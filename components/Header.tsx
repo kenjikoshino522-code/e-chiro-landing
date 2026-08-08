@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import CtaButton from "@/components/CtaButton";
 import { LINE_URL } from "@/lib/constants";
 
 const NAV_ITEMS = [
@@ -24,8 +25,10 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur transition-shadow ${
-        scrolled ? "shadow-md" : ""
+      className={`sticky top-0 z-50 transition-all duration-300 ease-out ${
+        scrolled
+          ? "border-b border-black/5 bg-white/95 shadow-lg backdrop-blur-md"
+          : "border-b border-transparent bg-white/70 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
@@ -50,14 +53,13 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
+        <CtaButton
           href={LINE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex min-h-11 items-center rounded-full bg-brand-blue px-4 py-2.5 text-sm font-bold text-white transition hover:opacity-90 sm:px-5"
+          variant="blue"
+          className="flex min-h-11 items-center rounded-full px-4 py-2.5 text-sm font-bold sm:px-5"
         >
           LINEで相談
-        </a>
+        </CtaButton>
       </div>
     </header>
   );

@@ -1,5 +1,7 @@
 import FadeIn from "@/components/FadeIn";
 
+const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
+
 const PILLARS = [
   {
     number: "01",
@@ -22,16 +24,16 @@ export default function WhyUs() {
   return (
     <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center">
+        <FadeIn variant="scale" className="text-center">
           <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">WHY UPGRADE WITH US</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             なぜe-CHIROが選ばれるのか
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {PILLARS.map((pillar, i) => (
-            <FadeIn key={pillar.number} delay={i * 100}>
+            <FadeIn key={pillar.number} variant={CARD_VARIANTS[i]} delay={i * 120}>
               <div className="h-full rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <span className="font-heading text-3xl font-black text-brand-blue">{pillar.number}</span>
                 <h3 className="mt-4 font-heading text-lg font-bold leading-snug text-neutral-900">

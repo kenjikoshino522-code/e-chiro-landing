@@ -1,5 +1,7 @@
 import FadeIn from "@/components/FadeIn";
 
+const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
+
 const STEPS = [
   {
     number: "01",
@@ -40,16 +42,16 @@ export default function ReservationFlow() {
   return (
     <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
-        <div className="text-center">
+        <FadeIn variant="scale" className="text-center">
           <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">HOW TO BOOK</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             予約の流れ
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {STEPS.map((step, i) => (
-            <FadeIn key={step.number} delay={i * 100} className="relative">
+            <FadeIn key={step.number} variant={CARD_VARIANTS[i]} delay={i * 120} className="relative">
               <div className="h-full rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <div className="flex items-center gap-3">
                   <span className="flex h-14 w-14 flex-none items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">

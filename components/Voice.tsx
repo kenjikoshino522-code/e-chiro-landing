@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TestimonialGrid from "@/components/TestimonialGrid";
+import FadeIn from "@/components/FadeIn";
 import { X_URL } from "@/lib/constants";
 
 const REVIEWS = [
@@ -56,13 +57,17 @@ export default function Voice() {
   return (
     <section id="voice" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-        <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">VOICE OF PLAYERS</p>
-        <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-          Tier UPを実感した声
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
-          施術を受けたお客様から、たくさんの声をいただいています。
-        </p>
+        <FadeIn variant="scale">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">VOICE OF PLAYERS</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+            Tier UPを実感した声
+          </h2>
+        </FadeIn>
+        <FadeIn variant="fade" delay={150}>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
+            施術を受けたお客様から、たくさんの声をいただいています。
+          </p>
+        </FadeIn>
       </div>
 
       <div className="group relative mt-12 overflow-hidden">

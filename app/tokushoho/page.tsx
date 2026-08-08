@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 import {
   COMPANY_ADDRESS,
   COMPANY_NAME,
@@ -58,10 +59,12 @@ export default function TokushohoPage() {
       <Header />
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LEGAL</p>
-          <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            特定商取引法に基づく表記
-          </h1>
+          <FadeIn variant="scale">
+            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LEGAL</p>
+            <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              特定商取引法に基づく表記
+            </h1>
+          </FadeIn>
           <p className="mt-4 text-sm leading-relaxed text-neutral-500">
             ※内容に変更がある場合は随時更新いたします。
           </p>

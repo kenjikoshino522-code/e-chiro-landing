@@ -1,29 +1,37 @@
 import Link from "next/link";
+import CtaButton from "@/components/CtaButton";
+import FadeIn from "@/components/FadeIn";
 import { CONTACT_EMAIL, NOTE_URL } from "@/lib/constants";
 
 export default function CorporatePlan() {
   return (
     <section id="corporate" className="bg-brand-blue px-4 py-20 text-white sm:px-6 sm:py-28">
       <div className="mx-auto max-w-4xl text-center">
-        <p className="font-heading text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
-        <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
-          チームのコンディションを、
-          <br className="sm:hidden" />
-          まるごとアップグレード
-        </h2>
+        <FadeIn variant="scale">
+          <p className="font-heading text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
+          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
+            チームのコンディションを、
+            <br className="sm:hidden" />
+            まるごとアップグレード
+          </h2>
+        </FadeIn>
 
-        <p className="mx-auto mt-8 max-w-2xl text-left text-base leading-relaxed text-white/90">
-          複数のゲーミングチーム・企業様と継続契約中。
-          チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
-        </p>
+        <FadeIn variant="fade" delay={150}>
+          <p className="mx-auto mt-8 max-w-2xl text-left text-base leading-relaxed text-white/90">
+            複数のゲーミングチーム・企業様と継続契約中。
+            チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
+          </p>
+        </FadeIn>
 
         <div className="mt-10 flex justify-center">
-          <a
+          <CtaButton
             href={`mailto:${CONTACT_EMAIL}`}
-            className="rounded-full bg-brand-yellow px-8 py-4 text-base font-extrabold text-brand-blue shadow-lg transition hover:scale-[1.02]"
+            variant="yellow"
+            external={false}
+            className="rounded-full px-8 py-4 text-base font-extrabold shadow-lg"
           >
             法人プランのご相談はこちら
-          </a>
+          </CtaButton>
         </div>
 
         <Link

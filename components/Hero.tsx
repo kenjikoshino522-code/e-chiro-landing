@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CtaButton from "@/components/CtaButton";
 import { LINE_URL, SITE_TAGLINE_EN_LINE1, SITE_TAGLINE_EN_LINE2 } from "@/lib/constants";
 
 export default function Hero() {
@@ -19,14 +20,13 @@ export default function Hero() {
         />
       </div>
       <div className="flex justify-center bg-brand-blue px-4 pb-10 pt-2 sm:pb-14">
-        <a
+        <CtaButton
           href={LINE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full max-w-sm rounded-full bg-brand-yellow px-8 py-4 text-center text-base font-extrabold text-brand-blue shadow-lg transition hover:scale-[1.02] sm:text-lg"
+          variant="yellow"
+          className="w-full max-w-sm rounded-full px-8 py-4 text-center text-base font-extrabold shadow-lg sm:text-lg"
         >
           LINEで予約・相談する
-        </a>
+        </CtaButton>
       </div>
     </section>
   );

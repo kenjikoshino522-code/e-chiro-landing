@@ -2,13 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 
+type Variant = "fade" | "scale" | "slide-up" | "slide-left" | "slide-right";
+
+const VARIANT_CLASSES: Record<Variant, { hidden: string; visible: string }> = {
+  fade: { hidden: "translate-y-5 opacity-0", visible: "translate-y-0 opacity-100" },
+  scale: { hidden: "-translate-y-2 scale-95 opacity-0", visible: "translate-y-0 scale-100 opacity-100" },
+  "slide-up": { hidden: "translate-y-10 opacity-0", visible: "translate-y-0 opacity-100" },
+  "slide-left": { hidden: "-translate-x-10 opacity-0", visible: "translate-x-0 opacity-100" },
+  "slide-right": { hidden: "translate-x-10 opacity-0", visible: "translate-x-0 opacity-100" },
+};
+
 export default function FadeIn({
   children,
   delay = 0,
+  variant = "fade",
   className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
+  variant?: Variant;
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,11 +49,13 @@ export default function FadeIn({
     return () => observer.disconnect();
   }, []);
 
+  const classes = VARIANT_CLASSES[variant];
+
   return (
     <div
       ref={ref}
       className={`transition-all duration-[600ms] ease-out ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+        visible ? classes.visible : classes.hidden
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
