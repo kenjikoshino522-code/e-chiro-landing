@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
-import { RESERVATION_MENUS } from "@/lib/constants";
+import { CONTACT_EMAIL, RESERVATION_MENUS } from "@/lib/constants";
 
 export const runtime = "nodejs";
 
@@ -43,13 +43,9 @@ function formatDatetime(value?: string) {
   });
 }
 
-async function sendLineNotification(payload: ReservationPayload) {
-  const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
-  const userId = process.env.LINE_ADMIN_USER_ID;
-  if (!token || !userId) return;
-
+function buildNotificationLines(payload: ReservationPayload) {
   const menu = RESERVATION_MENUS.find((m) => m.id === payload.menu);
-  const lines = [
+  return [
     "【新規予約】",
     `氏名: ${payload.name}`,
     `連絡先: ${payload.contact}`,
@@ -60,6 +56,12 @@ async function sendLineNotification(payload: ReservationPayload) {
     payload.note ? `備考: ${payload.note}` : null,
     "決済: 未払い（お客様に決済リンクを案内済み）",
   ].filter(Boolean);
+}
+
+async function sendLineNotification(payload: ReservationPayload) {
+  const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
+  const userId = process.env.LINE_ADMIN_USER_ID;
+  if (!token || !userId) return;
 
   await fetch("https://api.line.me/v2/bot/message/push", {
     method: "POST",
@@ -69,7 +71,28 @@ async function sendLineNotification(payload: ReservationPayload) {
     },
     body: JSON.stringify({
       to: userId,
-      messages: [{ type: "text", text: lines.join("\n") }],
+      messages: [{ type: "text", text: buildNotificationLines(payload).join("\n") }],
+    }),
+  });
+}
+
+async function sendEmailNotification(payload: ReservationPayload) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return;
+
+  const lines = buildNotificationLines(payload);
+
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      from: "e-CHIRO予約フォーム <onboarding@resend.dev>",
+      to: [CONTACT_EMAIL],
+      subject: `【新規予約】${payload.name}様`,
+      text: lines.join("\n"),
     }),
   });
 }
@@ -115,7 +138,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await sendLineNotification(body);
+    await Promise.all([sendLineNotification(body), sendEmailNotification(body)]);
   } catch {
     // Reservation is already saved; a notification failure shouldn't fail the request.
   }

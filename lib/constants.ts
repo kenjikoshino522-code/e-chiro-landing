@@ -1,5 +1,5 @@
 export const LINE_URL = "https://lin.ee/wkE0ZF1";
-export const CONTACT_EMAIL = "kenjipractic@gmail.com";
+export const CONTACT_EMAIL = "info@e-chiro.site";
 export const X_URL = "https://x.com/echiro_dc";
 export const NOTE_URL = "https://note.com/magic_stoat6987/n/n0218d623ec53";
 
