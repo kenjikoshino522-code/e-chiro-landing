@@ -126,6 +126,21 @@ export default function ServiceMenu() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn variant="fade" delay={150}>
+          <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-neutral-200 bg-neutral-50 p-6 text-center">
+            <p className="text-sm leading-relaxed text-neutral-700">
+              「どのメニューが合うか分からない」という方も、まずはLINEで気軽にご相談ください。
+            </p>
+            <CtaButton
+              href={LINE_URL}
+              variant="outline"
+              className="mt-4 inline-block rounded-full px-6 py-3 text-sm font-bold"
+            >
+              まずはLINEで相談する
+            </CtaButton>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
