@@ -25,26 +25,44 @@ export default function CountUp({
     const el = ref.current;
     if (!el) return;
 
+    let triggered = false;
+
+    function runCountUp() {
+      if (triggered) return;
+      triggered = true;
+
+      const duration = 800;
+      const start = performance.now();
+
+      function tick(now: number) {
+        const progress = Math.min((now - start) / duration, 1);
+        setDisplay(Math.round(value * (1 - Math.pow(1 - progress, 3))));
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        observer.unobserve(el);
-
-        const duration = 800;
-        const start = performance.now();
-
-        function tick(now: number) {
-          const progress = Math.min((now - start) / duration, 1);
-          setDisplay(Math.round(value * (1 - Math.pow(1 - progress, 3))));
-          if (progress < 1) requestAnimationFrame(tick);
+        if (entry.isIntersecting) {
+          runCountUp();
+          observer.unobserve(el);
         }
-        requestAnimationFrame(tick);
       },
-      { threshold: 0.5 }
+      { threshold: 0 }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety net: this is a price display, so it must never sit stuck at 0.
+    // If the observer never fires (edge cases in scroll timing, browser
+    // quirks, etc.), force the real value after a short delay regardless.
+    const fallback = setTimeout(runCountUp, 2500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [value]);
 
   return (
