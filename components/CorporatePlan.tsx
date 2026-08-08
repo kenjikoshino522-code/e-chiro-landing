@@ -21,6 +21,20 @@ export default function CorporatePlan() {
             複数のゲーミングチーム・企業様と継続契約中。
             チームの規模・頻度・ご要望に合わせてプランをカスタマイズするため、料金・内容はお気軽にご相談ください。
           </p>
+          <ul className="mx-auto mt-6 max-w-2xl space-y-2 text-left text-sm leading-relaxed text-white/90">
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-yellow">✓</span>
+              選手・社員への定期的なコンディショニング
+            </li>
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-yellow">✓</span>
+              大会・イベントへの出張対応
+            </li>
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-yellow">✓</span>
+              チーム単位・企業単位でのご相談
+            </li>
+          </ul>
         </FadeIn>
 
         <div className="mt-10 flex justify-center">

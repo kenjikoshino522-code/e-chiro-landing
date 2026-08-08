@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "漫画アーカイブ | e-CHIRO",
+  alternates: { canonical: `${SITE_URL}/manga` },
 };
 
 // SERIES is intentionally empty — content to be added.

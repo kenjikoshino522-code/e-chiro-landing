@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import { Zen_Kaku_Gothic_New, Chakra_Petch } from "next/font/google";
 import "./globals.css";
-import { SITE_URL } from "@/lib/constants";
+import StickyMobileCta from "@/components/StickyMobileCta";
+import {
+  COMPANY_ADDRESS,
+  COMPANY_NAME,
+  LINE_URL,
+  RESERVATION_MENUS,
+  SITE_URL,
+  X_URL,
+} from "@/lib/constants";
 
 const zenKakuGothicNew = Zen_Kaku_Gothic_New({
   subsets: ["latin"],
@@ -21,7 +29,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "e-CHIRO | Empowering e-Sports Players, Gamers, and Creators.",
   description:
-    "米国政府公認カイロプラクティック・ドクター Dr.KEN による、eスポーツ選手・ゲーマー・クリエイターのための出張カイロプラクティック。Upgrade Your Body & Tier!",
+    "東京近郊で出張対応する、eスポーツ選手・ゲーマー・デスクワーカーのためのカイロプラクティック。米国D.C.取得・元プロゲーマーのDr.KENが、長時間のPC作業やプレイによる肩こり・腰痛のコンディショニングをサポートします。",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
     title: "e-CHIRO | Upgrade Your Body & Tier!",
     description:
@@ -33,6 +44,21 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: COMPANY_NAME,
+  url: SITE_URL,
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "JP",
+    streetAddress: COMPANY_ADDRESS,
+  },
+  areaServed: "東京都近郊",
+  priceRange: `¥${Math.min(...RESERVATION_MENUS.map((m) => Number(m.price.replace(/[^0-9]/g, ""))))}〜¥${Math.max(...RESERVATION_MENUS.map((m) => Number(m.price.replace(/[^0-9]/g, ""))))}`,
+  sameAs: [LINE_URL, X_URL],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,7 +66,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${zenKakuGothicNew.variable} ${chakraPetch.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="pb-16 font-sans antialiased sm:pb-0">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        {children}
+        <StickyMobileCta />
+      </body>
     </html>
   );
 }

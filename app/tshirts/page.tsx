@@ -5,10 +5,11 @@ import ZoomableGallery from "@/components/ZoomableGallery";
 import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
 import CountUp from "@/components/CountUp";
-import { LINE_URL, X_URL } from "@/lib/constants";
+import { LINE_URL, SITE_URL, X_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "e-CHIRO オリジナルTシャツ | e-CHIRO",
+  alternates: { canonical: `${SITE_URL}/tshirts` },
 };
 
 const SIZE_ROWS = [

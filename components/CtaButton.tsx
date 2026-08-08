@@ -50,12 +50,13 @@ export default function CtaButton({
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       onClick={handleClick}
-      className={`relative overflow-hidden transition duration-300 ease-out hover:scale-[1.04] active:scale-[0.97] ${VARIANT_CLASSES[variant]} ${className}`}
+      className={`relative overflow-hidden transition duration-300 ease-out hover:scale-[1.04] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 ${VARIANT_CLASSES[variant]} ${className}`}
     >
       {children}
       {ripples.map((r) => (
         <span
           key={r.id}
+          aria-hidden="true"
           className={`pointer-events-none absolute rounded-full ${RIPPLE_COLOR[variant]} animate-ripple`}
           style={{ left: r.x, top: r.y, width: r.size, height: r.size }}
         />

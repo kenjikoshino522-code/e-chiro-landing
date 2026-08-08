@@ -19,7 +19,10 @@ export default function Hero() {
           sizes="100vw"
         />
       </div>
-      <div className="flex justify-center bg-brand-blue px-4 pb-10 pt-2 sm:pb-14">
+      <p className="mx-auto max-w-xl px-4 pt-4 text-center text-sm font-bold leading-relaxed text-white sm:text-base">
+        Dr.KEN(元プロゲーマー × 米国D.C.取得のカイロプラクター)が施術します
+      </p>
+      <div className="flex justify-center bg-brand-blue px-4 pb-10 pt-4 sm:pb-14">
         <CtaButton
           href={LINE_URL}
           variant="yellow"
