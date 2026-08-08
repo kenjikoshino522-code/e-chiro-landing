@@ -76,13 +76,13 @@ async function sendLineNotification(payload: ReservationPayload) {
   });
 }
 
-async function sendEmailNotification(payload: ReservationPayload) {
+async function sendEmailNotification(payload: ReservationPayload): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return;
+  if (!apiKey) return false;
 
   const lines = buildNotificationLines(payload);
 
-  await fetch("https://api.resend.com/emails", {
+  const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -95,6 +95,8 @@ async function sendEmailNotification(payload: ReservationPayload) {
       text: lines.join("\n"),
     }),
   });
+
+  return res.ok;
 }
 
 export async function POST(request: Request) {
@@ -112,35 +114,41 @@ export async function POST(request: Request) {
     );
   }
 
+  // Supabase is optional — the reservation still goes through as long as at
+  // least one of {database save, email notification} succeeds below.
+  let savedToDatabase = false;
   const supabase = getSupabaseServerClient();
-  if (!supabase) {
+  if (supabase) {
+    const { error } = await supabase.from("reservations").insert({
+      name: body.name,
+      contact: body.contact,
+      menu: body.menu,
+      preferred_datetime_1: body.preferredDatetime1,
+      preferred_datetime_2: body.preferredDatetime2 || null,
+      preferred_datetime_3: body.preferredDatetime3 || null,
+      note: body.note || null,
+    });
+    savedToDatabase = !error;
+  }
+
+  let emailSent = false;
+  try {
+    emailSent = await sendEmailNotification(body);
+  } catch {
+    emailSent = false;
+  }
+
+  try {
+    await sendLineNotification(body);
+  } catch {
+    // LINE is a best-effort extra channel; it never determines the response.
+  }
+
+  if (!savedToDatabase && !emailSent) {
     return NextResponse.json(
       { ok: false, error: "予約フォームの設定が完了していません。しばらくしてから再度お試しください。" },
       { status: 500 }
     );
-  }
-
-  const { error } = await supabase.from("reservations").insert({
-    name: body.name,
-    contact: body.contact,
-    menu: body.menu,
-    preferred_datetime_1: body.preferredDatetime1,
-    preferred_datetime_2: body.preferredDatetime2 || null,
-    preferred_datetime_3: body.preferredDatetime3 || null,
-    note: body.note || null,
-  });
-
-  if (error) {
-    return NextResponse.json(
-      { ok: false, error: "予約の保存に失敗しました。時間をおいて再度お試しください。" },
-      { status: 500 }
-    );
-  }
-
-  try {
-    await Promise.all([sendLineNotification(body), sendEmailNotification(body)]);
-  } catch {
-    // Reservation is already saved; a notification failure shouldn't fail the request.
   }
 
   return NextResponse.json({ ok: true });
