@@ -9,36 +9,56 @@ const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
 const TIERS = [
   {
     number: "①",
+    tag: "01 / ULTIMATE",
     src: "/images/menu/menu-01-ultimate.jpg",
     alt: "1. Ultimate Body Care アルティメット・ボディケア 究極 ¥20,000",
     nameEn: "Ultimate Body Care",
     nameJa: "アルティメット・ボディケア",
     part: "究極",
     price: "¥20,000",
-    duration: "目安60分",
+    duration: "45 — 70分",
     description: "パフォーマンス最大化を狙う根本改善の最上位プラン。",
+    bodyParts: [
+      { en: "Cervical & Shoulder", ja: "首・肩" },
+      { en: "Thoracic & Lumbar", ja: "背中・腰" },
+      { en: "Pelvis", ja: "骨盤" },
+      { en: "Arms, Legs & Hands", ja: "両腕・両脚・両手" },
+      { en: "Scalp", ja: "頭部" },
+    ],
   },
   {
     number: "②",
+    tag: "02 / TOTAL",
     src: "/images/menu/menu-02-total.jpg",
     alt: "2. Total Body Care トータル・ボディケア 全身 ¥12,000",
     nameEn: "Total Body Care",
     nameJa: "トータル・ボディケア",
     part: "全身",
     price: "¥12,000",
-    duration: "目安45分",
+    duration: "30 — 45分",
     description: "全身の歪みを総合的に調整する標準プラン。",
+    bodyParts: [
+      { en: "Cervical & Shoulder", ja: "首・肩" },
+      { en: "Thoracic & Lumbar", ja: "背中・腰" },
+      { en: "Pelvis", ja: "骨盤" },
+      { en: "Hands", ja: "両手" },
+    ],
   },
   {
     number: "③",
+    tag: "03 / NECK & ARM",
     src: "/images/menu/menu-03-neckarm.jpg",
     alt: "3. Neck & Arm Care ネック&アームケア 首・腕 ¥5,000",
     nameEn: "Neck & Arm Care",
     nameJa: "ネック&アームケア",
     part: "首・腕",
     price: "¥5,000",
-    duration: "目安30分",
+    duration: "15 — 30分",
     description: "首・肩・腕の痛みや凝りに集中したケア。",
+    bodyParts: [
+      { en: "Cervical & Shoulder", ja: "首・肩" },
+      { en: "Arms", ja: "両腕" },
+    ],
   },
 ];
 
@@ -71,12 +91,21 @@ const structuredData = {
 
 export default function ServiceMenu() {
   return (
-    <section id="menu" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+    <section id="menu" className="relative bg-white px-4 py-20 sm:px-6 sm:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(30,0,220,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(30,0,220,0.08) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-5xl">
         <FadeIn variant="scale" className="text-center">
           <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
@@ -87,30 +116,50 @@ export default function ServiceMenu() {
         <div className="mt-14 space-y-10">
           {TIERS.map((item, i) => (
             <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120}>
-              <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={2000}
-                  height={1125}
-                  className="w-full"
-                  sizes="(min-width: 1024px) 960px, 100vw"
+              <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-brand-blue transition-transform duration-300 ease-out group-hover:scale-x-100"
                 />
+                <div className="flex items-center justify-center bg-neutral-900">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={2000}
+                    height={1125}
+                    className="max-h-[280px] w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width: 1024px) 960px, 100vw"
+                  />
+                </div>
 
                 <div className="border-t border-neutral-200 px-6 py-6 sm:px-8">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <p className="font-heading text-xs font-bold tracking-[0.2em] text-brand-blue">{item.tag}</p>
+                  <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <h3 className="font-heading text-lg font-bold text-neutral-900">
                       {item.number} {item.nameEn}
                       <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
                     </h3>
-                    <span className="text-xl font-extrabold text-brand-blue">
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.description}</p>
+
+                  <ul className="mt-4 space-y-1.5">
+                    {item.bodyParts.map((bp) => (
+                      <li
+                        key={bp.en}
+                        className="flex items-center justify-between border-b border-neutral-100 py-1.5 text-sm text-neutral-700"
+                      >
+                        <span>{bp.en}</span>
+                        <span className="text-xs text-neutral-500">{bp.ja}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-4 flex items-end justify-between border-t border-neutral-200 pt-4">
+                    <span className="text-xs font-medium text-neutral-500">{item.duration}</span>
+                    <span className="font-heading text-2xl font-extrabold text-brand-blue">
                       <CountUp value={Number(item.price.replace(/[^0-9]/g, ""))} prefix="¥" />
                     </span>
                   </div>
-                  <p className="mt-1 text-sm font-medium text-neutral-500">
-                    {item.part}｜{item.duration}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.description}</p>
                 </div>
 
                 <div className="flex justify-center bg-neutral-50 px-4 py-6">
