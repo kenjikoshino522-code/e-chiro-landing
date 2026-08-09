@@ -9,13 +9,23 @@ const CAREER = [
   "人間生物学士(Bachelor of Human Biology)取得",
 ];
 
+const CREDENTIALS = [
+  { title: "米国国家資格", body: "Doctor of Chiropractic (D.C.)" },
+  { title: "米国理学療法士資格", body: "Physical Therapist (P.T.)" },
+  { title: "元プロゲーマー", body: "eスポーツ専門のコンディショニング" },
+  { title: "法人・チーム対応", body: "出張実績あり" },
+];
+
 export default function About() {
   return (
     <section id="about" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-start gap-10 md:grid-cols-2 md:gap-16">
         <div>
           <FadeIn variant="scale">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">ABOUT</p>
+            <p className="flex items-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+              <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+              ABOUT
+            </p>
             <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               施術者紹介
             </h2>
@@ -47,6 +57,18 @@ export default function About() {
                 同じ悩みを抱えるプレイヤー・ゲーマー・クリエイターの力になりたいという想いから、
                 出張型カイロプラクティック「e-CHIRO」を立ち上げました。
               </p>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {CREDENTIALS.map((c) => (
+                <div
+                  key={c.title}
+                  className="border-l-2 border-brand-blue bg-neutral-50 px-4 py-3 text-sm text-neutral-700"
+                >
+                  <p className="font-bold text-neutral-900">{c.title}</p>
+                  <p className="mt-0.5 text-xs text-neutral-500">{c.body}</p>
+                </div>
+              ))}
             </div>
           </FadeIn>
         </div>

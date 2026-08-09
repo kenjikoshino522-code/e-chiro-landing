@@ -7,7 +7,10 @@ export default function PaymentMethod() {
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
           <FadeIn variant="scale">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">PAYMENT METHOD</p>
+            <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+            <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+            PAYMENT METHOD
+          </p>
             <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               決済方法
             </h2>

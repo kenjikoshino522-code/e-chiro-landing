@@ -58,7 +58,10 @@ export default function Voice() {
     <section id="voice" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
         <FadeIn variant="scale">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">VOICE OF PLAYERS</p>
+          <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+            <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+            VOICE OF PLAYERS
+          </p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             Tier UPを実感した声
           </h2>

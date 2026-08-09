@@ -37,7 +37,10 @@ export default function PageLinkBanner({
               />
             )}
             <div>
-              <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">{eyebrow}</p>
+              <p className="flex items-center gap-2 font-heading text-xs font-bold tracking-widest text-brand-blue">
+                <span aria-hidden="true" className="h-px w-4 bg-brand-blue" />
+                {eyebrow}
+              </p>
               <p className="mt-2 font-heading text-lg font-bold text-neutral-900">{title}</p>
               <p className="mt-1 text-sm text-neutral-600">{description}</p>
             </div>

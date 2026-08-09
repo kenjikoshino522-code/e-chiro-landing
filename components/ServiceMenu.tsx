@@ -107,7 +107,10 @@ export default function ServiceMenu() {
       />
       <div className="relative mx-auto max-w-6xl">
         <FadeIn variant="scale" className="text-center">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
+          <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+            <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+            SERVICE MENU
+          </p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             あなたの身体を、アップグレードしよう
           </h2>

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import TickerBanner from "@/components/TickerBanner";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
 import About from "@/components/About";
+import AboutChiro from "@/components/AboutChiro";
 import LogoConcept from "@/components/LogoConcept";
 import PageLinkBanner from "@/components/PageLinkBanner";
 import WhyUs from "@/components/WhyUs";
@@ -11,6 +12,7 @@ import ReservationFlow from "@/components/ReservationFlow";
 import ReservationForm from "@/components/ReservationForm";
 import CorporatePlan from "@/components/CorporatePlan";
 import PaymentMethod from "@/components/PaymentMethod";
+import PlayersBanner from "@/components/PlayersBanner";
 import Voice from "@/components/Voice";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
@@ -24,6 +26,7 @@ export default function Home() {
         <TickerBanner />
         <WhatIsEChiro />
         <LogoConcept />
+        <AboutChiro />
         <About />
         <PageLinkBanner
           eyebrow="COMIC"
@@ -38,6 +41,7 @@ export default function Home() {
         <ServiceMenu />
         <ReservationFlow />
         <ReservationForm />
+        <PlayersBanner />
         <Voice />
         <PaymentMethod />
         <CorporatePlan />

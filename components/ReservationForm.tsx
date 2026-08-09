@@ -71,7 +71,10 @@ export default function ReservationForm() {
       <section id="reserve" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-xl rounded-2xl border border-neutral-200 bg-neutral-50 p-8 text-center shadow-sm sm:p-12">
           <FadeIn variant="scale">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVED</p>
+            <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+              <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+              RESERVED
+            </p>
             <h2 className="mt-2 font-heading text-2xl font-extrabold text-neutral-900 sm:text-3xl">
               ご予約リクエストを受け付けました
             </h2>
@@ -102,7 +105,10 @@ export default function ReservationForm() {
       <div className="mx-auto max-w-xl">
         <div className="text-center">
           <FadeIn variant="scale">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">RESERVATION</p>
+            <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+              <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+              RESERVATION
+            </p>
             <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               サイトから予約する
             </h2>

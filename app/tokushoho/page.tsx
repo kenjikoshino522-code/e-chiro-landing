@@ -62,7 +62,10 @@ export default function TokushohoPage() {
       <main className="bg-white px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-3xl">
           <FadeIn variant="scale">
-            <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LEGAL</p>
+            <p className="flex items-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+              <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+              LEGAL
+            </p>
             <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
               特定商取引法に基づく表記
             </h1>

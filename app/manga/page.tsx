@@ -24,7 +24,10 @@ export default function MangaPage() {
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <FadeIn variant="scale">
-              <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">COMIC</p>
+              <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+                <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+                COMIC
+              </p>
               <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
                 漫画アーカイブ
               </h1>

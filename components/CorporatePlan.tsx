@@ -8,7 +8,10 @@ export default function CorporatePlan() {
     <section id="corporate" className="bg-brand-blue px-4 py-20 text-white sm:px-6 sm:py-28">
       <div className="mx-auto max-w-4xl text-center">
         <FadeIn variant="scale">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-yellow">FOR TEAMS &amp; COMPANIES</p>
+          <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-yellow">
+            <span aria-hidden="true" className="h-px w-5 bg-white/40" />
+            FOR TEAMS &amp; COMPANIES
+          </p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
             チームのコンディションを、
             <br className="sm:hidden" />

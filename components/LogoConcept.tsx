@@ -6,7 +6,10 @@ export default function LogoConcept() {
     <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <FadeIn variant="scale">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">LOGO CONCEPT</p>
+          <p className="flex items-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+            <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+            LOGO CONCEPT
+          </p>
         </FadeIn>
 
         <div className="mt-10 grid items-center gap-12 md:grid-cols-2 md:gap-16">

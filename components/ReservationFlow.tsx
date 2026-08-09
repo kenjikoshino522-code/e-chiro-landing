@@ -43,7 +43,10 @@ export default function ReservationFlow() {
     <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-5xl">
         <FadeIn variant="scale" className="text-center">
-          <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">HOW TO BOOK</p>
+          <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
+            <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
+            HOW TO BOOK
+          </p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
             予約の流れ
           </h2>
