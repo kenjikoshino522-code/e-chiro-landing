@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import HeroProfile from "@/components/HeroProfile";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
 import About from "@/components/About";
 import LogoConcept from "@/components/LogoConcept";
@@ -21,7 +20,6 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <HeroProfile />
         <WhatIsEChiro />
         <LogoConcept />
         <About />
