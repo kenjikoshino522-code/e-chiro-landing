@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type Variant = "fade" | "scale" | "slide-up" | "slide-left" | "slide-right";
+type Variant = "fade" | "scale" | "slide-up" | "slide-left" | "slide-right" | "mask";
 
-const VARIANT_CLASSES: Record<Variant, { hidden: string; visible: string }> = {
+const VARIANT_CLASSES: Record<Exclude<Variant, "mask">, { hidden: string; visible: string }> = {
   fade: { hidden: "translate-y-5 opacity-0", visible: "translate-y-0 opacity-100" },
   scale: { hidden: "-translate-y-2 scale-95 opacity-0", visible: "translate-y-0 scale-100 opacity-100" },
   "slide-up": { hidden: "translate-y-10 opacity-0", visible: "translate-y-0 opacity-100" },
@@ -48,6 +48,21 @@ export default function FadeIn({
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  if (variant === "mask") {
+    return (
+      <div ref={ref} className={`overflow-hidden ${className}`}>
+        <div
+          className={`transition-transform duration-[900ms] ease-premium ${
+            visible ? "translate-y-0" : "translate-y-[110%]"
+          }`}
+          style={{ transitionDelay: `${delay}ms` }}
+        >
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   const classes = VARIANT_CLASSES[variant];
 

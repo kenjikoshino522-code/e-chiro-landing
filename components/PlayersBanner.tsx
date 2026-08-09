@@ -10,9 +10,11 @@ export default function PlayersBanner() {
           PLAYERS
           <span aria-hidden="true" className="h-px w-5 bg-white/40" />
         </p>
-        <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
-          多くのプロ選手・チームに選ばれています
-        </h2>
+        <FadeIn variant="mask" delay={100}>
+          <h2 className="mt-2 font-heading text-2xl font-extrabold tracking-tight sm:text-3xl">
+            多くのプロ選手・チームに選ばれています
+          </h2>
+        </FadeIn>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-white/80">
           eスポーツプロ選手・配信者・チームスタッフなど、これまで多くの方に施術を行ってきました。実際の声は以下でご紹介しています。
         </p>

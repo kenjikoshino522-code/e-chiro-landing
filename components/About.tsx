@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import ParallaxImage from "@/components/ParallaxImage";
 
 const CAREER = [
   "元プロゲーマー(プロゲーミングチームITS 鉄拳部門所属)",
@@ -26,9 +27,11 @@ export default function About() {
               <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
               ABOUT
             </p>
-            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-              施術者紹介
-            </h2>
+            <FadeIn variant="mask" delay={100}>
+              <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+                施術者紹介
+              </h2>
+            </FadeIn>
           </FadeIn>
 
           <FadeIn variant="fade" delay={150}>
@@ -74,7 +77,7 @@ export default function About() {
         </div>
 
         <FadeIn variant="slide-right" delay={200}>
-          <div className="mx-auto max-w-[280px] overflow-hidden rounded-2xl bg-brand-blue md:max-w-none">
+          <ParallaxImage className="mx-auto max-w-[280px] rounded-2xl bg-brand-blue md:max-w-none">
             <Image
               src="/images/dr-ken-headshot.jpg"
               alt="Dr.KEN"
@@ -83,7 +86,7 @@ export default function About() {
               className="h-full w-full object-cover"
               sizes="(min-width: 768px) 480px, 280px"
             />
-          </div>
+          </ParallaxImage>
         </FadeIn>
       </div>
     </section>

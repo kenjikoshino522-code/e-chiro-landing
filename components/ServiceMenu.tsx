@@ -3,6 +3,7 @@ import { LINE_URL } from "@/lib/constants";
 import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
 import CountUp from "@/components/CountUp";
+import SpotlightCard from "@/components/SpotlightCard";
 
 const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
 
@@ -111,15 +112,17 @@ export default function ServiceMenu() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             SERVICE MENU
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            あなたの身体を、アップグレードしよう
-          </h2>
+          <FadeIn variant="mask" delay={100}>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              あなたの身体を、アップグレードしよう
+            </h2>
+          </FadeIn>
         </FadeIn>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {TIERS.map((item, i) => (
             <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120} className="h-full">
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <SpotlightCard className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1.5 hover:shadow-lg">
                 <span
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-brand-blue transition-transform duration-300 ease-out group-hover:scale-x-100"
@@ -172,7 +175,7 @@ export default function ServiceMenu() {
                     {item.number}をLINEで予約する
                   </CtaButton>
                 </div>
-              </div>
+              </SpotlightCard>
             </FadeIn>
           ))}
         </div>

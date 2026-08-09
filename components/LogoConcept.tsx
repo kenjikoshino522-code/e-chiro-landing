@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import ParallaxImage from "@/components/ParallaxImage";
 
 export default function LogoConcept() {
   return (
@@ -15,13 +16,15 @@ export default function LogoConcept() {
         <div className="mt-10 grid items-center gap-12 md:grid-cols-2 md:gap-16">
           <FadeIn variant="slide-right" delay={200} className="group flex justify-center md:order-2">
             <div className="w-full max-w-sm overflow-hidden rounded-3xl bg-brand-blue p-10 shadow-xl transition-transform duration-500 ease-out group-hover:-translate-y-1">
-              <Image
-                src="/images/logo-square.jpg"
-                alt="e-CHIRO ロゴマーク"
-                width={600}
-                height={600}
-                className="w-full rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
-              />
+              <ParallaxImage className="rounded-xl">
+                <Image
+                  src="/images/logo-square.jpg"
+                  alt="e-CHIRO ロゴマーク"
+                  width={600}
+                  height={600}
+                  className="w-full transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </ParallaxImage>
             </div>
           </FadeIn>
 

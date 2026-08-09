@@ -12,11 +12,13 @@ export default function CorporatePlan() {
             <span aria-hidden="true" className="h-px w-5 bg-white/40" />
             FOR TEAMS &amp; COMPANIES
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
-            チームのコンディションを、
-            <br className="sm:hidden" />
-            まるごとアップグレード
-          </h2>
+          <FadeIn variant="mask" delay={100}>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
+              チームのコンディションを、
+              <br className="sm:hidden" />
+              まるごとアップグレード
+            </h2>
+          </FadeIn>
         </FadeIn>
 
         <FadeIn variant="fade" delay={150}>

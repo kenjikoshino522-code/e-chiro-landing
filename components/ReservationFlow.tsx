@@ -47,9 +47,11 @@ export default function ReservationFlow() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             HOW TO BOOK
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            予約の流れ
-          </h2>
+          <FadeIn variant="mask" delay={100}>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              予約の流れ
+            </h2>
+          </FadeIn>
         </FadeIn>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-3">

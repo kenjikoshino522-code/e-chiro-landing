@@ -15,9 +15,11 @@ export default function AboutChiro() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             ABOUT CHIROPRACTIC
           </p>
-          <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-neutral-900">
-            カイロプラクティックとは
-          </h3>
+          <FadeIn variant="mask" delay={100}>
+            <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-neutral-900">
+              カイロプラクティックとは
+            </h3>
+          </FadeIn>
           <div className="mt-4 space-y-4 text-sm leading-relaxed text-neutral-700">
             <p>
               米国発祥の手技療法で、WHO(世界保健機関)もヘルスケアの一つとして位置づけを示しており、
@@ -34,9 +36,11 @@ export default function AboutChiro() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             ABOUT CHIROPRACTOR
           </p>
-          <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-neutral-900">
-            カイロプラクターとは
-          </h3>
+          <FadeIn variant="mask" delay={100}>
+            <h3 className="mt-2 font-heading text-2xl font-bold tracking-tight text-neutral-900">
+              カイロプラクターとは
+            </h3>
+          </FadeIn>
           <ul className="mt-4 space-y-3">
             {CHIROPRACTOR_POINTS.map((point) => (
               <li key={point} className="flex gap-2 text-sm leading-relaxed text-neutral-700">

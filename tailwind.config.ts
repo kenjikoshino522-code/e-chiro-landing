@@ -14,6 +14,10 @@ const config: Config = {
         sans: ["var(--font-zen-kaku)", "sans-serif"],
         heading: ["var(--font-chakra-petch)", "var(--font-zen-kaku)", "sans-serif"],
       },
+      transitionTimingFunction: {
+        premium: "cubic-bezier(0.16, 1, 0.3, 1)",
+        "premium-slow": "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
@@ -23,11 +27,17 @@ const config: Config = {
           "0%": { transform: "scale(0)", opacity: "0.5" },
           "100%": { transform: "scale(1)", opacity: "0" },
         },
+        drift: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(4%, -6%) scale(1.15)" },
+        },
       },
       animation: {
         marquee: "marquee 32s linear infinite",
         "marquee-slow": "marquee 70s linear infinite",
         ripple: "ripple 0.6s ease-out",
+        drift: "drift 22s ease-in-out infinite",
+        "drift-slow": "drift 30s ease-in-out infinite",
       },
     },
   },

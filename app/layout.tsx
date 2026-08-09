@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Zen_Kaku_Gothic_New, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import StickyMobileCta from "@/components/StickyMobileCta";
+import ScrollProgress from "@/components/ScrollProgress";
 import {
   COMPANY_ADDRESS,
   COMPANY_NAME,
@@ -71,6 +72,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
+        <ScrollProgress />
         {children}
         <StickyMobileCta />
       </body>

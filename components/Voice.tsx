@@ -62,9 +62,11 @@ export default function Voice() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             VOICE OF PLAYERS
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            Tier UPを実感した声
-          </h2>
+          <FadeIn variant="mask" delay={100}>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              Tier UPを実感した声
+            </h2>
+          </FadeIn>
         </FadeIn>
         <FadeIn variant="fade" delay={150}>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">

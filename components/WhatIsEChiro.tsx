@@ -11,9 +11,11 @@ export default function WhatIsEChiro() {
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
             WHAT IS e-CHIRO
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-            e-CHIRO（イーカイロ）とは
-          </h2>
+          <FadeIn variant="mask" delay={100}>
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+              e-CHIRO（イーカイロ）とは
+            </h2>
+          </FadeIn>
         </FadeIn>
 
         <FadeIn variant="fade" delay={150}>
