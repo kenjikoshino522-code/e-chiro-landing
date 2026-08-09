@@ -105,7 +105,7 @@ export default function ServiceMenu() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-6xl">
         <FadeIn variant="scale" className="text-center">
           <p className="font-heading text-sm font-bold tracking-widest text-brand-blue">SERVICE MENU</p>
           <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
@@ -113,10 +113,10 @@ export default function ServiceMenu() {
           </h2>
         </FadeIn>
 
-        <div className="mt-14 space-y-10">
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {TIERS.map((item, i) => (
-            <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120}>
-              <div className="group relative overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120} className="h-full">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <span
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-brand-blue transition-transform duration-300 ease-out group-hover:scale-x-100"
@@ -127,19 +127,17 @@ export default function ServiceMenu() {
                     alt={item.alt}
                     width={2000}
                     height={1125}
-                    className="max-h-[280px] w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                    sizes="(min-width: 1024px) 960px, 100vw"
+                    className="max-h-[200px] w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width: 1024px) 380px, 100vw"
                   />
                 </div>
 
-                <div className="border-t border-neutral-200 px-6 py-6 sm:px-8">
+                <div className="flex flex-1 flex-col border-t border-neutral-200 px-6 py-6">
                   <p className="font-heading text-xs font-bold tracking-[0.2em] text-brand-blue">{item.tag}</p>
-                  <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="font-heading text-lg font-bold text-neutral-900">
-                      {item.number} {item.nameEn}
-                      <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
-                    </h3>
-                  </div>
+                  <h3 className="mt-1 font-heading text-lg font-bold text-neutral-900">
+                    {item.number} {item.nameEn}
+                    <span className="ml-2 text-sm font-medium text-neutral-500">{item.nameJa}</span>
+                  </h3>
                   <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.description}</p>
 
                   <ul className="mt-4 space-y-1.5">
@@ -154,7 +152,7 @@ export default function ServiceMenu() {
                     ))}
                   </ul>
 
-                  <div className="mt-4 flex items-end justify-between border-t border-neutral-200 pt-4">
+                  <div className="mt-4 flex flex-1 items-end justify-between border-t border-neutral-200 pt-4">
                     <span className="text-xs font-medium text-neutral-500">{item.duration}</span>
                     <span className="font-heading text-2xl font-extrabold text-brand-blue">
                       <CountUp value={Number(item.price.replace(/[^0-9]/g, ""))} prefix="¥" />
