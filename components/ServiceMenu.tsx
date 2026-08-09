@@ -116,7 +116,7 @@ export default function ServiceMenu() {
         <div className="mt-14 grid gap-6 lg:grid-cols-3">
           {TIERS.map((item, i) => (
             <FadeIn key={item.number} variant={CARD_VARIANTS[i]} delay={i * 120} className="h-full">
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <span
                   aria-hidden="true"
                   className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-brand-blue transition-transform duration-300 ease-out group-hover:scale-x-100"
