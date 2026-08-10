@@ -55,9 +55,14 @@ export default function CountUp({
     observer.observe(el);
 
     // Safety net: this is a price display, so it must never sit stuck at 0.
-    // If the observer never fires (edge cases in scroll timing, browser
-    // quirks, etc.), force the real value after a short delay regardless.
-    const fallback = setTimeout(runCountUp, 2500);
+    // Set the final value directly (not via the rAF-driven animation) so this
+    // still works even if requestAnimationFrame never fires, e.g. a
+    // backgrounded or non-visible tab.
+    const fallback = setTimeout(() => {
+      if (triggered) return;
+      triggered = true;
+      setDisplay(value);
+    }, 2500);
 
     return () => {
       observer.disconnect();

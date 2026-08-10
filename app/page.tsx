@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TickerBanner from "@/components/TickerBanner";
 import BuiltForGamers from "@/components/BuiltForGamers";
+import GamersTransition from "@/components/GamersTransition";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
 import About from "@/components/About";
 import AboutChiro from "@/components/AboutChiro";
@@ -25,8 +26,9 @@ export default function Home() {
       <main>
         <Hero />
         <TickerBanner />
-        <BuiltForGamers />
         <WhatIsEChiro />
+        <GamersTransition />
+        <BuiltForGamers />
         <LogoConcept />
         <AboutChiro />
         <About />
