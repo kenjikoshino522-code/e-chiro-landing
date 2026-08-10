@@ -191,7 +191,7 @@ export default function Hero() {
 
         <div ref={portraitParallaxRef} className="flex justify-center lg:justify-end">
           <div
-            className="aspect-square w-[190px] overflow-hidden rounded-[2rem] shadow-2xl ring-1 ring-white/15 transition-[clip-path] duration-[900ms] ease-premium sm:w-[230px] lg:w-[clamp(220px,20vw,320px)]"
+            className="aspect-square w-[190px] overflow-hidden rounded-[2rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.75)] transition-[clip-path] duration-[900ms] ease-premium sm:w-[230px] lg:w-[clamp(220px,20vw,320px)]"
             style={{
               transitionDelay: "900ms",
               clipPath: visible ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
