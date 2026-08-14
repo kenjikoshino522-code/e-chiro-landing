@@ -70,7 +70,7 @@ export default function Voice() {
         </FadeIn>
         <FadeIn variant="fade" delay={150}>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
-            施術を受けたお客様から、たくさんの声をいただいています。
+            施術を受けたお客様から、たくさんの声をいただいています。プロ選手・ゲーム関連企業にも利用されています。
           </p>
         </FadeIn>
       </div>
