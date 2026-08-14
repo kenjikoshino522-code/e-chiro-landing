@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LINE_URL } from "@/lib/constants";
+import { LINE_URL, RESERVATION_MENUS } from "@/lib/constants";
 import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
 import CountUp from "@/components/CountUp";
@@ -7,8 +7,13 @@ import SpotlightCard from "@/components/SpotlightCard";
 
 const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
 
+function priceFor(id: string) {
+  return RESERVATION_MENUS.find((menu) => menu.id === id)!.price;
+}
+
 const TIERS = [
   {
+    id: "1",
     number: "①",
     tag: "01 / ULTIMATE",
     src: "/images/menu/menu-01-ultimate.jpg",
@@ -16,7 +21,6 @@ const TIERS = [
     nameEn: "Ultimate Body Care",
     nameJa: "アルティメット・ボディケア",
     part: "究極",
-    price: "¥20,000",
     duration: "45 — 70分",
     description: "パフォーマンス最大化を狙う根本改善の最上位プラン。",
     bodyParts: [
@@ -28,6 +32,7 @@ const TIERS = [
     ],
   },
   {
+    id: "2",
     number: "②",
     tag: "02 / TOTAL",
     src: "/images/menu/menu-02-total.jpg",
@@ -35,7 +40,6 @@ const TIERS = [
     nameEn: "Total Body Care",
     nameJa: "トータル・ボディケア",
     part: "全身",
-    price: "¥12,000",
     duration: "30 — 45分",
     description: "全身の歪みを総合的に調整する標準プラン。",
     bodyParts: [
@@ -46,6 +50,7 @@ const TIERS = [
     ],
   },
   {
+    id: "3",
     number: "③",
     tag: "03 / NECK & ARM",
     src: "/images/menu/menu-03-neckarm.jpg",
@@ -53,7 +58,6 @@ const TIERS = [
     nameEn: "Neck & Arm Care",
     nameJa: "ネック&アームケア",
     part: "首・腕",
-    price: "¥5,000",
     duration: "15 — 30分",
     description: "首・肩・腕の痛みや凝りに集中したケア。",
     bodyParts: [
@@ -80,10 +84,10 @@ const structuredData = {
     offers: {
       "@type": "Offer",
       priceCurrency: "JPY",
-      price: tier.price.replace(/[^0-9]/g, ""),
+      price: priceFor(tier.id).replace(/[^0-9]/g, ""),
       priceSpecification: {
         "@type": "PriceSpecification",
-        price: tier.price.replace(/[^0-9]/g, ""),
+        price: priceFor(tier.id).replace(/[^0-9]/g, ""),
         priceCurrency: "JPY",
       },
     },
@@ -161,7 +165,7 @@ export default function ServiceMenu() {
                   <div className="mt-4 flex flex-1 items-end justify-between border-t border-neutral-200 pt-4">
                     <span className="text-xs font-medium text-neutral-500">{item.duration}</span>
                     <span className="font-heading text-2xl font-extrabold text-brand-blue">
-                      <CountUp value={Number(item.price.replace(/[^0-9]/g, ""))} prefix="¥" />
+                      <CountUp value={Number(priceFor(item.id).replace(/[^0-9]/g, ""))} prefix="¥" />
                     </span>
                   </div>
                 </div>

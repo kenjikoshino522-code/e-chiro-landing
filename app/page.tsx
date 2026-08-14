@@ -1,20 +1,21 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TickerBanner from "@/components/TickerBanner";
-import BuiltForGamers from "@/components/BuiltForGamers";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
-import About from "@/components/About";
+import TrustSection from "@/components/TrustSection";
+import BuiltForGamers from "@/components/BuiltForGamers";
+import Voice from "@/components/Voice";
 import AboutChiro from "@/components/AboutChiro";
-import LogoConcept from "@/components/LogoConcept";
+import ChiroVsSeitai from "@/components/ChiroVsSeitai";
+import About from "@/components/About";
 import PageLinkBanner from "@/components/PageLinkBanner";
 import WhyUs from "@/components/WhyUs";
 import ServiceMenu from "@/components/ServiceMenu";
 import ReservationFlow from "@/components/ReservationFlow";
 import ReservationForm from "@/components/ReservationForm";
-import CorporatePlan from "@/components/CorporatePlan";
 import PaymentMethod from "@/components/PaymentMethod";
-import PlayersBanner from "@/components/PlayersBanner";
-import Voice from "@/components/Voice";
+import CorporatePlan from "@/components/CorporatePlan";
+import LogoConcept from "@/components/LogoConcept";
 import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
 
@@ -26,9 +27,11 @@ export default function Home() {
         <Hero />
         <TickerBanner />
         <WhatIsEChiro />
+        <TrustSection />
         <BuiltForGamers />
-        <LogoConcept />
+        <Voice />
         <AboutChiro />
+        <ChiroVsSeitai />
         <About />
         <PageLinkBanner
           eyebrow="COMIC"
@@ -43,10 +46,9 @@ export default function Home() {
         <ServiceMenu />
         <ReservationFlow />
         <ReservationForm />
-        <PlayersBanner />
-        <Voice />
         <PaymentMethod />
         <CorporatePlan />
+        <LogoConcept />
         <PageLinkBanner
           eyebrow="MERCHANDISE"
           title="e-CHIROオリジナルグッズ"

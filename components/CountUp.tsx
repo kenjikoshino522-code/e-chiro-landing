@@ -14,17 +14,20 @@ export default function CountUp({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(0);
+  // Defaults to the real value so SSR/initial HTML never shows 0. The
+  // animated count-up (when motion is enabled) resets to 0 itself once it
+  // starts, right before counting back up to `value`.
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplay(value);
       return;
     }
 
     const el = ref.current;
     if (!el) return;
 
+    setDisplay(0);
     let triggered = false;
 
     function runCountUp() {
