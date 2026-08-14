@@ -140,7 +140,8 @@ export default function ChiroVsSeitai() {
         <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4 text-sm text-neutral-600">
           <p className="font-bold text-neutral-900">施術者の教育</p>
           <p className="mt-1">
-            どちらも人によって大きく異なります。本来必要な教育を受けてD.C.を取得した施術者は、
+            どちらも人によって大きく異なります。D.C.（Doctor of Chiropractic）は、4年制・4200時間以上の教育を受け、
+            米国の国家試験（NBCE、計4科目）に合格した人が取得できる資格です。本来この教育を受けてD.C.を取得した施術者は、
             日本国内では1%に満たないとも言われています。
           </p>
         </div>
