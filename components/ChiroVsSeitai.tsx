@@ -110,7 +110,8 @@ export default function ChiroVsSeitai() {
           <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">CHIROPRACTIC</p>
           <h3 className="mt-2 font-heading text-xl font-bold text-neutral-900">カイロプラクティック</h3>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            背骨・関節などの身体機能を評価する考え方や体系があります。教育課程が4年制・4200時間以上
+            背骨・関節などの身体機能を評価する考え方や体系があります。世界約40の国や地域で法制化されており、
+            WHO（世界保健機関）もヘルスケアの一つとして位置づけを示しています。教育課程が4年制・4200時間以上
             （うち臨床実習1000時間以上を含む）という例もあります。
           </p>
         </div>
@@ -137,15 +138,12 @@ export default function ChiroVsSeitai() {
       </div>
 
       <div className="mx-auto mt-14 max-w-2xl text-center">
-        <div className="grid grid-cols-1 gap-4 text-sm text-neutral-600 sm:grid-cols-2">
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4">
-            <p className="font-bold text-neutral-900">日本の資格制度</p>
-            <p className="mt-1">どちらも名称そのものに国家資格制度はありません。</p>
-          </div>
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4">
-            <p className="font-bold text-neutral-900">施術者の教育</p>
-            <p className="mt-1">どちらも人によって大きく異なります。</p>
-          </div>
+        <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4 text-sm text-neutral-600">
+          <p className="font-bold text-neutral-900">施術者の教育</p>
+          <p className="mt-1">
+            どちらも人によって大きく異なります。実際、本来カイロプラクターになるために必要な教育を受けてD.C.
+            （Doctor of Chiropractic）を取得した施術者は、日本国内では1%に満たないとも言われています。
+          </p>
         </div>
       </div>
 

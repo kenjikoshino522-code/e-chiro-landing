@@ -7,10 +7,13 @@ import CtaButton from "@/components/CtaButton";
 import { LINE_URL } from "@/lib/constants";
 
 const NAV_ITEMS = [
-  { href: "#about", label: "About" },
-  { href: "#menu", label: "サービスメニュー" },
-  { href: "#corporate", label: "法人プラン" },
-  { href: "#voice", label: "お客様の声" },
+  { href: "/#chiro", label: "About" },
+  { href: "/#about", label: "施術者" },
+  { href: "/#menu", label: "サービスメニュー" },
+  { href: "/#corporate", label: "法人プラン" },
+  { href: "/#voice", label: "お客様の声" },
+  { href: "/manga", label: "マンガ" },
+  { href: "/tshirts", label: "グッズ" },
 ];
 
 export default function Header() {
@@ -32,7 +35,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="#top" className="flex min-h-11 items-center gap-2 py-2">
+        <Link href="/#top" className="flex min-h-11 items-center gap-2 py-2">
           <Image
             src="/images/logo-square.jpg"
             alt="e-CHIRO"
@@ -45,7 +48,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-neutral-700 md:flex">
+        <nav className="hidden items-center gap-5 whitespace-nowrap text-sm font-medium text-neutral-700 lg:flex">
           {NAV_ITEMS.map((item) => (
             <Link key={item.href} href={item.href} className="transition hover:text-brand-blue">
               {item.label}

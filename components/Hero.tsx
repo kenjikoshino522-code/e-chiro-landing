@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -197,15 +198,17 @@ export default function Hero() {
               clipPath: visible ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
             }}
           >
-            <Image
-              src="/images/logo-square.jpg"
-              alt="e-CHIRO ロゴマーク"
-              width={640}
-              height={640}
-              priority
-              className="h-full w-full object-cover"
-              sizes="(min-width: 1024px) 320px, 230px"
-            />
+            <Link href="/#logo-concept" aria-label="ロゴコンセプトを見る" className="block h-full w-full">
+              <Image
+                src="/images/logo-square.jpg"
+                alt="e-CHIRO ロゴマーク"
+                width={640}
+                height={640}
+                priority
+                className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-105"
+                sizes="(min-width: 1024px) 320px, 230px"
+              />
+            </Link>
           </div>
         </div>
       </div>

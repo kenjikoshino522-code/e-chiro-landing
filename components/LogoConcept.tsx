@@ -4,7 +4,7 @@ import ParallaxImage from "@/components/ParallaxImage";
 
 export default function LogoConcept() {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 sm:py-28">
+    <section id="logo-concept" className="bg-white px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <FadeIn variant="scale">
           <p className="flex items-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">

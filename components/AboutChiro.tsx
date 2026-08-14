@@ -2,7 +2,7 @@ import FadeIn from "@/components/FadeIn";
 
 export default function AboutChiro() {
   return (
-    <section className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
+    <section id="chiro" className="bg-neutral-50 px-4 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <FadeIn variant="scale">
           <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
