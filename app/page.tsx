@@ -27,9 +27,9 @@ export default function Home() {
         <Hero />
         <TickerBanner />
         <WhatIsEChiro />
+        <Voice />
         <TrustSection />
         <BuiltForGamers />
-        <Voice />
         <AboutChiro />
         <ChiroVsSeitai />
         <About />

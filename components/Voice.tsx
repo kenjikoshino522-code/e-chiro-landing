@@ -36,13 +36,6 @@ const REVIEWS = [
   },
 ];
 
-const FEATURED_QUOTE = {
-  role: "声優",
-  name: "小森未彩様",
-  handle: "@misae_komori",
-  body: "整体やマッサージは他のところで受けたことあるけど、カイロは初めてなので緊張しましたが施術も丁寧で首肩腰がめちゃ楽になりました✨",
-};
-
 function ReviewCard({ review }: { review: (typeof REVIEWS)[number] }) {
   return (
     <div className="w-[300px] flex-none rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-[340px]">
@@ -79,17 +72,6 @@ export default function Voice() {
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
             施術を受けたお客様から、たくさんの声をいただいています。
           </p>
-        </FadeIn>
-
-        <FadeIn variant="fade" delay={220}>
-          <div className="mx-auto mt-10 max-w-2xl border-t border-neutral-200 pt-10">
-            <p className="font-heading text-xl font-bold leading-snug text-neutral-900 sm:text-2xl">
-              「{FEATURED_QUOTE.body}」
-            </p>
-            <p className="mt-4 text-sm font-medium text-neutral-500">
-              {FEATURED_QUOTE.role} ・ {FEATURED_QUOTE.name}（{FEATURED_QUOTE.handle}）
-            </p>
-          </div>
         </FadeIn>
       </div>
 
