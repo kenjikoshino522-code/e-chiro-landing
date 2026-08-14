@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "e-CHIRO | Upgrade Your Body & Tier!",
     description:
-      "eスポーツ選手・ゲーマー・クリエイターのための出張カイロプラクティック。米国政府公認D.C.資格保持のDr.KENが施術します。",
+      "eスポーツ選手・ゲーマー・クリエイターのための出張カイロプラクティック。米国D.C.（Doctor of Chiropractic）資格を持つDr.KENが施術します。",
     url: SITE_URL,
     siteName: "e-CHIRO",
     locale: "ja_JP",

@@ -17,18 +17,6 @@ const REVIEWS = [
     body: "施術で全身をみてもらい、食いしばりや腰の凝り、猫背になりかけていることなど、自分でもできるケアを細かく教えていただきました。横になっていても体がみるみる軽くなっていくのがわかりました。",
   },
   {
-    name: "Rino",
-    date: "2023/9/1",
-    title: "終わった後のスッキリ感が最高",
-    body: "長年のデスクワークで慢性的な肩こりに悩まされていましたが、終わった後の体のスッキリ感に驚きました。特に首周りの詰まりが解消されて、身体全身が軽くなったように感じました。",
-  },
-  {
-    name: "アケノ",
-    date: "2023/6/27",
-    title: "初めてのカイロプラクティック",
-    body: "接骨院で施術を受けてもなかなか改善しなかった首周りの問題もかなり改善されて、とても嬉しいです。共通の話題で楽しく会話しながら、終始リラックスして受けることができました。",
-  },
-  {
     name: "スミス",
     date: "2022/11/30",
     title: "骨盤矯正で自己治癒力も上がる",
@@ -60,17 +48,17 @@ export default function Voice() {
         <FadeIn variant="scale">
           <p className="flex items-center justify-center gap-2 font-heading text-sm font-bold tracking-widest text-brand-blue">
             <span aria-hidden="true" className="h-px w-5 bg-brand-blue" />
-            VOICE OF PLAYERS
+            SELECTED VOICES
           </p>
           <FadeIn variant="mask" delay={100}>
             <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-              Tier UPを実感した声
+              厳選された利用者の声
             </h2>
           </FadeIn>
         </FadeIn>
         <FadeIn variant="fade" delay={150}>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-700">
-            施術を受けたお客様から、たくさんの声をいただいています。プロ選手・ゲーム関連企業にも利用されています。
+            施術を受けたお客様から届いた声の一部をご紹介します。
           </p>
         </FadeIn>
       </div>

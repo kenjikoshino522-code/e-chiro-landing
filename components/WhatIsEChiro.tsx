@@ -1,6 +1,6 @@
 import FadeIn from "@/components/FadeIn";
 
-const FEATURES = ["出張型・完全予約制", "マンツーマン施術", "米国政府公認D.C.資格保持", "セルフケア指導付き"];
+const FEATURES = ["出張型・完全予約制", "マンツーマン施術", "米国D.C.資格保持", "セルフケア指導付き"];
 
 export default function WhatIsEChiro() {
   return (

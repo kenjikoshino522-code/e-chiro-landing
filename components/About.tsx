@@ -11,8 +11,7 @@ const CAREER = [
 ];
 
 const CREDENTIALS = [
-  { title: "米国国家資格", body: "Doctor of Chiropractic (D.C.)" },
-  { title: "米国理学療法士資格", body: "Physical Therapist (P.T.)" },
+  { title: "米国D.C.資格", body: "Doctor of Chiropractic (D.C.)" },
   { title: "元プロゲーマー", body: "eスポーツ専門のコンディショニング" },
   { title: "法人・チーム対応", body: "出張実績あり" },
 ];
@@ -38,7 +37,7 @@ export default function About() {
             <div className="mt-8">
               <p className="text-2xl font-extrabold text-neutral-900">Dr.KEN</p>
               <p className="mt-1 text-sm font-medium text-neutral-600">
-                代表取締役｜米国政府公認D.C.｜米国理学療法士｜元プロゲーマー
+                代表取締役｜米国D.C.（Doctor of Chiropractic）｜元プロゲーマー
               </p>
             </div>
 
@@ -49,6 +48,11 @@ export default function About() {
                 </li>
               ))}
             </ul>
+
+            <p className="mt-4 text-xs leading-relaxed text-neutral-500">
+              D.C.（Doctor of Chiropractic）は、4年制・4200時間以上の教育を受け、米国の国家試験（NBCE、計4科目）に合格して取得する資格です。
+              世界約40の国・地域で法制化されており、WHO（世界保健機関）もヘルスケアの一つに位置づけています。
+            </p>
 
             <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-700">
               <p>

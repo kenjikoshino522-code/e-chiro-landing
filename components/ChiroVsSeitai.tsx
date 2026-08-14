@@ -110,8 +110,7 @@ export default function ChiroVsSeitai() {
           <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">CHIROPRACTIC</p>
           <h3 className="mt-2 font-heading text-xl font-bold text-neutral-900">カイロプラクティック</h3>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            背骨・関節などの身体機能を評価する考え方や体系があります。世界約40の国・地域で法制化され、
-            WHO（世界保健機関）もヘルスケアの一つに位置づけています。
+            体系化された教育・評価の考え方が存在します。
           </p>
         </div>
 
@@ -131,18 +130,7 @@ export default function ChiroVsSeitai() {
           <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">SEITAI</p>
           <h3 className="mt-2 font-heading text-xl font-bold text-neutral-900">整体</h3>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            日本では非常に広い意味で使われ、流派や施術者によって内容が大きく異なります。
-          </p>
-        </div>
-      </div>
-
-      <div className="mx-auto mt-14 max-w-2xl text-center">
-        <div className="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4 text-sm text-neutral-600">
-          <p className="font-bold text-neutral-900">施術者の教育</p>
-          <p className="mt-1">
-            どちらも人によって大きく異なります。D.C.（Doctor of Chiropractic）は、4年制・4200時間以上の教育を受け、
-            米国の国家試験（NBCE、計4科目）に合格した人が取得できる資格です。本来この教育を受けてD.C.を取得した施術者は、
-            日本国内では1%に満たないとも言われています。
+            日本では非常に広い意味で使われ、内容や教育背景が施術者によって異なります。
           </p>
         </div>
       </div>
@@ -170,7 +158,7 @@ export default function ChiroVsSeitai() {
           className="font-heading font-black uppercase leading-[0.95] text-brand-blue"
           style={{ fontSize: "clamp(1.75rem, 6vw, 3.5rem)" }}
         >
-          SO, WHO YOU CHOOSE MATTERS.
+          WHO YOU CHOOSE MATTERS.
         </p>
         <p className="mt-3 text-base font-bold text-neutral-700 sm:text-lg">
           だから、「誰に受けるか」が大切。

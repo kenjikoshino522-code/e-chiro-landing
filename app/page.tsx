@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TickerBanner from "@/components/TickerBanner";
 import WhatIsEChiro from "@/components/WhatIsEChiro";
+import TrustedBy from "@/components/TrustedBy";
 import BuiltForGamers from "@/components/BuiltForGamers";
 import Voice from "@/components/Voice";
 import AboutChiro from "@/components/AboutChiro";
@@ -26,8 +27,9 @@ export default function Home() {
         <Hero />
         <TickerBanner />
         <WhatIsEChiro />
-        <Voice />
+        <TrustedBy />
         <BuiltForGamers />
+        <Voice />
         <AboutChiro />
         <ChiroVsSeitai />
         <About />

@@ -17,20 +17,23 @@ export default function AboutChiro() {
         </FadeIn>
 
         <FadeIn variant="fade" delay={150}>
-          <div className="mt-6 space-y-4 text-left text-sm leading-relaxed text-neutral-700 sm:text-base">
-            <p>
-              カイロプラクティックというと、「背骨をボキッとする施術」をイメージする人も多いかもしれません。
-              でも、それだけではありません。
-            </p>
-            <p>
-              簡単にいうと、身体の動きやバランスをチェックし、背骨や関節などにアプローチするヘルスケアです。
-              姿勢や関節の動き、筋肉、身体の使い方を確認しながら、「どこに負担がかかっているのか」
-              「なぜ動きにくくなっているのか」を一緒に考えていくのが特徴です。
-            </p>
-            <p>
-              e-CHIROでは、ゲームやPC作業による首・肩・腰・腕まわりの負担も含めて、あなたの身体をチェックします。
-            </p>
-          </div>
+          <ul className="mt-6 space-y-2 text-left text-sm leading-relaxed text-neutral-700 sm:text-base">
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-blue">▶</span>
+              身体の動きやバランスをチェックする
+            </li>
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-blue">▶</span>
+              背骨・関節・筋肉なども含めて考える
+            </li>
+            <li className="flex gap-2">
+              <span aria-hidden="true" className="text-brand-blue">▶</span>
+              「ボキッとするだけ」ではない
+            </li>
+          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-neutral-700 sm:text-base">
+            e-CHIROでは、ゲームやPC作業による首・肩・腰・腕の負担も含めてチェックします。
+          </p>
         </FadeIn>
       </div>
     </section>
