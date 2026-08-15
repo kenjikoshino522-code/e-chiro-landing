@@ -146,7 +146,7 @@ export default function ChiroVsSeitai() {
           日本では、「カイロ」も「整体」も、国が決めた資格ではありません。
         </p>
         <p className="mt-3 text-xs leading-relaxed text-neutral-500">
-          カイロプラクティックは海外で確立された評価・教育の体系を持ち、整体は日本で独自に発展してきた民間療法です。
+          カイロプラクティックは海外で確立された評価・教育の体系を持ち、米国では"Doctor"の称号を持つ臨床専門職です。整体は日本で独自に発展してきた民間療法です。
         </p>
       </div>
 
