@@ -110,7 +110,7 @@ export default function ChiroVsSeitai() {
           <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">CHIROPRACTIC</p>
           <h3 className="mt-2 font-heading text-xl font-bold text-neutral-900">カイロプラクティック</h3>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            体系化された教育・評価の考え方が存在します。
+            世界共通のやり方で、体の動きを調べて整えます。
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function ChiroVsSeitai() {
           <p className="font-heading text-xs font-bold tracking-widest text-brand-blue">SEITAI</p>
           <h3 className="mt-2 font-heading text-xl font-bold text-neutral-900">整体</h3>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            日本では非常に広い意味で使われ、内容や教育背景が施術者によって異なります。
+            決まったやり方はなく、お店によってバラバラです。
           </p>
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function ChiroVsSeitai() {
         style={{ transitionDelay: "240ms" }}
       >
         <p className="font-heading text-lg font-bold leading-relaxed text-neutral-900 sm:text-xl">
-          実は、日本ではどちらも名称そのものに国家資格制度はありません。
+          日本では、「カイロ」も「整体」も、国が決めた資格ではありません。
         </p>
       </div>
 
