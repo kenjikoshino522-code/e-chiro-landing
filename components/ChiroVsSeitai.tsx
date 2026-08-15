@@ -148,9 +148,6 @@ export default function ChiroVsSeitai() {
         <p className="mt-3 text-xs leading-relaxed text-neutral-500">
           カイロプラクティックは海外で確立された評価・教育の体系を持ち、米国では"Doctor"の称号を持つ臨床専門職です。整体は日本で独自に発展してきた民間療法です。
         </p>
-        <p className="mt-2 text-xs leading-relaxed text-neutral-400">
-          なお、骨折・脱臼などを扱う「柔道整復師」は、カイロプラクティックや整体とは異なる国家資格です。
-        </p>
       </div>
 
       <div
