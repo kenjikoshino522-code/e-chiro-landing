@@ -42,7 +42,7 @@ const config: Config = {
         ripple: "ripple 0.6s ease-out",
         drift: "drift 22s ease-in-out infinite",
         "drift-slow": "drift 30s ease-in-out infinite",
-        shimmer: "shimmer 5s linear infinite",
+        shimmer: "shimmer 2.6s linear infinite",
       },
     },
   },

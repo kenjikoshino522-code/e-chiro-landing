@@ -156,7 +156,7 @@ export default function Hero() {
                   style={{ fontSize: "clamp(2.5rem, 8.5vw, 5.25rem)" }}
                 >
                   PLAY{" "}
-                  <span className="bg-gradient-to-r from-white via-brand-yellow to-white bg-[length:200%_auto] bg-clip-text text-transparent motion-safe:animate-shimmer">
+                  <span className="bg-gradient-to-r from-brand-yellow via-white to-brand-yellow bg-[length:200%_auto] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(255,230,0,0.45)] motion-safe:animate-shimmer">
                     LONGER.
                   </span>
                 </span>

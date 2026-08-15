@@ -80,7 +80,7 @@ export default function FinalCta() {
     <section ref={sectionRef} className="relative overflow-hidden bg-neutral-950 px-4 py-24 text-center text-white sm:px-6 sm:py-32">
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 -top-4 overflow-hidden select-none">
         <div
-          className="whitespace-nowrap text-center font-heading font-black uppercase leading-none text-transparent opacity-[0.07] [-webkit-text-stroke:1.5px_rgba(255,255,255,0.6)]"
+          className="whitespace-nowrap text-center font-heading font-black uppercase leading-none text-transparent opacity-[0.22] [-webkit-text-stroke:2.5px_rgba(255,255,255,0.85)]"
           style={{ fontSize: "clamp(4rem, 16vw, 11rem)" }}
         >
           LEVEL UP

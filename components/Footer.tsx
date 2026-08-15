@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden bg-neutral-950 px-4 py-12 text-white/70 sm:px-6">
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-8%] overflow-hidden select-none">
         <div
-          className="whitespace-nowrap text-center font-heading font-black uppercase leading-none text-transparent opacity-[0.08] [-webkit-text-stroke:1px_rgba(255,255,255,0.5)]"
+          className="whitespace-nowrap text-center font-heading font-black uppercase leading-none text-transparent opacity-[0.2] [-webkit-text-stroke:2px_rgba(255,255,255,0.8)]"
           style={{ fontSize: "clamp(4rem, 19vw, 13rem)" }}
         >
           e-CHIRO
