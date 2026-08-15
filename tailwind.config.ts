@@ -31,6 +31,10 @@ const config: Config = {
           "0%, 100%": { transform: "translate(0, 0) scale(1)" },
           "50%": { transform: "translate(4%, -6%) scale(1.15)" },
         },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         marquee: "marquee 32s linear infinite",
@@ -38,6 +42,7 @@ const config: Config = {
         ripple: "ripple 0.6s ease-out",
         drift: "drift 22s ease-in-out infinite",
         "drift-slow": "drift 30s ease-in-out infinite",
+        shimmer: "shimmer 5s linear infinite",
       },
     },
   },

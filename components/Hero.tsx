@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CtaButton from "@/components/CtaButton";
+import HeroStarfield from "@/components/HeroStarfield";
 import { LINE_URL, SITE_TAGLINE_EN_LINE1, SITE_TAGLINE_EN_LINE2 } from "@/lib/constants";
 
 if (typeof window !== "undefined") {
@@ -112,6 +113,8 @@ export default function Hero() {
         style={{ background: "radial-gradient(circle, rgba(51,24,255,0.55), transparent 60%)" }}
       />
 
+      <HeroStarfield />
+
       <div
         ref={bgTextRef}
         aria-hidden="true"
@@ -152,7 +155,10 @@ export default function Hero() {
                   className="block font-heading font-black uppercase leading-[0.95] text-white"
                   style={{ fontSize: "clamp(2.5rem, 8.5vw, 5.25rem)" }}
                 >
-                  PLAY LONGER.
+                  PLAY{" "}
+                  <span className="bg-gradient-to-r from-white via-brand-yellow to-white bg-[length:200%_auto] bg-clip-text text-transparent motion-safe:animate-shimmer">
+                    LONGER.
+                  </span>
                 </span>
               </div>
             </div>

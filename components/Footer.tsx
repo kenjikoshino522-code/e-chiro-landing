@@ -4,8 +4,17 @@ import { LINE_URL, X_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-950 px-4 py-12 text-white/70 sm:px-6">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
+    <footer className="relative overflow-hidden bg-neutral-950 px-4 py-12 text-white/70 sm:px-6">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-8%] overflow-hidden select-none">
+        <div
+          className="whitespace-nowrap text-center font-heading font-black uppercase leading-none text-transparent opacity-[0.08] [-webkit-text-stroke:1px_rgba(255,255,255,0.5)]"
+          style={{ fontSize: "clamp(4rem, 19vw, 13rem)" }}
+        >
+          e-CHIRO
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
         <Image
           src="/images/logo-square.jpg"
           alt="e-CHIRO"
