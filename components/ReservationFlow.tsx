@@ -1,8 +1,26 @@
+import type { ReactNode } from "react";
 import FadeIn from "@/components/FadeIn";
 
 const CARD_VARIANTS = ["slide-left", "slide-up", "slide-right"] as const;
 
-const STEPS = [
+type Step = {
+  number: string;
+  title: string;
+  body: string;
+  icon: ReactNode;
+  locations?: string[];
+};
+
+const PARTNER_LOCATIONS = ["渋谷", "新宿", "池袋", "赤羽", "横浜", "津田沼"];
+
+const PIN_ICON = (
+  <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="12" cy="9" r="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const STEPS: Step[] = [
   {
     number: "01",
     title: "X DMまたは公式LINEで送るだけ",
@@ -16,13 +34,14 @@ const STEPS = [
   {
     number: "02",
     title: "都内近郊の提携スペース、または自宅出張",
-    body: "固定店舗を持たず、渋谷・新宿・池袋・赤羽・横浜・津田沼などの提携プライベート施術スペースを利用。ご自宅への出張も対応しています（別途出張料）。",
+    body: "固定店舗を持たず、提携プライベート施術スペースを利用。ご自宅への出張も対応しています（別途出張料）。",
     icon: (
       <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" strokeLinecap="round" strokeLinejoin="round" />
         <circle cx="12" cy="10" r="3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
+    locations: PARTNER_LOCATIONS,
   },
   {
     number: "03",
@@ -68,6 +87,23 @@ export default function ReservationFlow() {
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-neutral-600">{step.body}</p>
+
+                {step.locations && (
+                  <div className="mt-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {step.locations.map((loc) => (
+                        <span
+                          key={loc}
+                          className="flex items-center gap-1 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-2.5 py-1 text-xs font-medium text-brand-blue"
+                        >
+                          <span aria-hidden="true">{PIN_ICON}</span>
+                          {loc}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-2 text-xs text-neutral-400">※ どこも最寄り駅から徒歩5分以内</p>
+                  </div>
+                )}
               </div>
 
               {i < STEPS.length - 1 && (
