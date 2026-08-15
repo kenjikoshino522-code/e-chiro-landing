@@ -1,5 +1,4 @@
 import Link from "next/link";
-import TestimonialGrid from "@/components/TestimonialGrid";
 import FadeIn from "@/components/FadeIn";
 import { X_URL } from "@/lib/constants";
 
@@ -72,8 +71,6 @@ export default function Voice() {
           ))}
         </div>
       </div>
-
-      <TestimonialGrid />
 
       <div className="mx-auto mt-4 max-w-4xl px-4 text-center sm:px-6">
         <p className="text-xs text-neutral-400">レビュー出典: MOSH予約ページ「e-CHIRO」</p>
