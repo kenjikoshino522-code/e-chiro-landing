@@ -30,16 +30,17 @@ export default function MangaPage() {
             </FadeIn>
             <FadeIn variant="fade" delay={150}>
               <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
-                e-CHIROがどんなサービスか、漫画でわかりやすく紹介しています。
+                健康情報をわかりやすい漫画にしてみました！
+                <Link
+                  href={X_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-brand-blue"
+                >
+                  Xで投稿中
+                </Link>
+                です！
               </p>
-              <Link
-                href={X_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-bold text-brand-blue"
-              >
-                Xでも投稿しています → @echiro_dc
-              </Link>
             </FadeIn>
           </div>
 
