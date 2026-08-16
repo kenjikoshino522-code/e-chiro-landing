@@ -9,6 +9,43 @@ export type MangaSeries = {
 
 export const MANGA_SERIES: MangaSeries[] = [
   {
+    slug: "intro",
+    title: "そのエイムの乱れ、原因は「デバイス」ではなく「体」にある。",
+    description: "WHO基準の専門家が提供する、ゲーマーのためのパフォーマンス向上メソッド「e-CHIRO」とは。",
+    images: [
+      {
+        src: "/images/manga/intro-1.png",
+        alt: "そのエイムの乱れ、原因は「デバイス」ではなく「体」にある。e-CHIRO：WHO基準の専門家が提供する、ゲーマーのためのパフォーマンス向上メソッド。",
+        width: 2560,
+        height: 1440,
+      },
+      {
+        src: "/images/manga/intro-2.png",
+        alt: "ランクが上がらず悩むゲーマーに、Dr.KENがe-CHIROのパフォーマンス・アップ・メソッドを紹介",
+        width: 896,
+        height: 1195,
+      },
+      {
+        src: "/images/manga/intro-3.png",
+        alt: "カイロプラクティックはWHOが認める国際的なヘルスケア。4200時間以上の専門教育とNBCE4段階の国家試験",
+        width: 1056,
+        height: 1408,
+      },
+      {
+        src: "/images/manga/intro-4.png",
+        alt: "e-CHIROのおかげでランクアップ達成。最高のデバイスに、最高のコンディションを",
+        width: 1056,
+        height: 1408,
+      },
+      {
+        src: "/images/manga/intro-5.png",
+        alt: "予約方法：X DMまたは公式LINEで希望日時と場所を送るだけ。対応エリアと月1回のメンテナンスのすすめ",
+        width: 1086,
+        height: 1448,
+      },
+    ],
+  },
+  {
     slug: "sleep-hack",
     title: "「ゲーム→風呂→就寝」が最強の自律神経ハック",
     description: "入浴のタイミングを間違えると、寝つきもゲームの調子も落ちる。",
