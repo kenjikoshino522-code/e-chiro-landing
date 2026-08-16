@@ -21,7 +21,7 @@ export async function generateMetadata({
   const series = getMangaSeries(slug);
   if (!series) return {};
   return {
-    title: `${series.title} | e-CHIRO 漫画アーカイブ`,
+    title: `${series.title} | e-CHIRO AI漫画アーカイブ`,
     description: series.description,
     alternates: { canonical: `${SITE_URL}/manga/${series.slug}` },
   };
@@ -43,7 +43,7 @@ export default async function MangaSeriesPage({
         <div className="mx-auto max-w-lg">
           <FadeIn variant="fade">
             <Link href="/manga" className="inline-flex min-h-11 items-center text-sm font-bold text-brand-blue">
-              ← 漫画アーカイブに戻る
+              ← AI漫画アーカイブに戻る
             </Link>
           </FadeIn>
 

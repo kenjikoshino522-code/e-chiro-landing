@@ -5,10 +5,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { MANGA_SERIES } from "@/lib/manga";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, X_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "漫画アーカイブ | e-CHIRO",
+  title: "AI漫画アーカイブ | e-CHIRO",
   alternates: { canonical: `${SITE_URL}/manga` },
 };
 
@@ -25,13 +25,21 @@ export default function MangaPage() {
                 COMIC
               </p>
               <h1 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-                漫画アーカイブ
+                AI漫画アーカイブ
               </h1>
             </FadeIn>
             <FadeIn variant="fade" delay={150}>
               <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-600">
                 e-CHIROがどんなサービスか、漫画でわかりやすく紹介しています。
               </p>
+              <Link
+                href={X_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-sm font-bold text-brand-blue"
+              >
+                Xでも投稿しています → @echiro_dc
+              </Link>
             </FadeIn>
           </div>
 
