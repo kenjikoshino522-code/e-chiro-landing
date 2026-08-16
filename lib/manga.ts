@@ -119,6 +119,37 @@ export const MANGA_SERIES: MangaSeries[] = [
       },
     ],
   },
+  {
+    slug: "heatstroke",
+    title: "去年、熱中症で救急搬送されました。──備えが命を守る理由",
+    description: "OS-1とORSの違い、知っていますか？夏に欠かせない経口補水液の話。",
+    images: [
+      {
+        src: "/images/manga/heatstroke-1.jpg",
+        alt: "去年、熱中症で救急搬送されました。出張型の施術で移動はほとんど徒歩。水分は摂っていたつもりだった",
+        width: 479,
+        height: 816,
+      },
+      {
+        src: "/images/manga/heatstroke-2.jpg",
+        alt: "OS-1とORSの違い。OS-1は脱水症のための医療用経口補水液、ORSは日常の水分・電解質補給に",
+        width: 543,
+        height: 816,
+      },
+      {
+        src: "/images/manga/heatstroke-3.jpg",
+        alt: "夏は1ケース買って毎日1本カバンに入れています。この1本が自分や誰かを助けることになる",
+        width: 477,
+        height: 716,
+      },
+      {
+        src: "/images/manga/heatstroke-4.jpg",
+        alt: "この1本が、あなたや大切な人を守るかもしれません。自分を守る、家族を守る、道で困っている人を守る",
+        width: 553,
+        height: 723,
+      },
+    ],
+  },
 ];
 
 export function getMangaSeries(slug: string): MangaSeries | undefined {
