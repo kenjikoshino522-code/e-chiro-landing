@@ -118,7 +118,7 @@ export default function ServiceMenu() {
           </p>
           <FadeIn variant="mask" delay={100}>
             <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
-              あなたの身体を、アップグレードしよう
+              あなたの身体を、<span className="whitespace-nowrap">アップグレード</span>しよう
             </h2>
           </FadeIn>
         </FadeIn>

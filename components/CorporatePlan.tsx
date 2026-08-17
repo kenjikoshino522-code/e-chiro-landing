@@ -13,10 +13,9 @@ export default function CorporatePlan() {
             FOR TEAMS &amp; COMPANIES
           </p>
           <FadeIn variant="mask" delay={100}>
-            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
-              チームのコンディションを、
-              <br className="sm:hidden" />
-              まるごとアップグレード
+            <h2 className="mt-2 font-heading text-3xl font-extrabold tracking-tight [text-wrap:pretty] sm:text-4xl">
+              チームのコンディションを、まるごと
+              <span className="whitespace-nowrap">アップグレード</span>
             </h2>
           </FadeIn>
         </FadeIn>

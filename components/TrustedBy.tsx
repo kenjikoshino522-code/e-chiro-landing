@@ -56,7 +56,7 @@ export default function TrustedBy() {
                 />
               </div>
               <div className="border-t border-neutral-200 px-3 py-2">
-                <p className="text-[10px] font-medium text-neutral-400">{item.role}</p>
+                <p className="text-xs font-medium text-neutral-400">{item.role}</p>
                 <p className="text-xs font-bold text-neutral-900">{item.name}</p>
               </div>
             </div>
