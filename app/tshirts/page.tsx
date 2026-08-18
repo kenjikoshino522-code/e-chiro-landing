@@ -5,7 +5,8 @@ import ZoomableGallery from "@/components/ZoomableGallery";
 import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
 import CountUp from "@/components/CountUp";
-import { LINE_URL, SITE_URL, X_URL } from "@/lib/constants";
+import TshirtOrderForm from "@/components/TshirtOrderForm";
+import { LINE_URL, SITE_URL, TSHIRT_TREATED_PRICE, X_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "e-CHIRO オリジナルTシャツ | e-CHIRO",
@@ -68,6 +69,12 @@ export default function TshirtsPage() {
               </p>
               <p className="mt-3 text-xs text-neutral-400">画像タップで拡大表示できます</p>
             </FadeIn>
+            <FadeIn variant="fade" delay={200}>
+              <div className="mx-auto mt-6 max-w-md rounded-xl border border-brand-blue/20 bg-brand-blue/5 px-5 py-4 text-left text-sm leading-relaxed text-neutral-700">
+                <p className="font-bold text-neutral-900">🎁 施術を受けた方限定価格 {TSHIRT_TREATED_PRICE}</p>
+                <p className="mt-1">ご予約時にご希望のカラー・サイズをお伝えください。</p>
+              </div>
+            </FadeIn>
           </div>
 
           <div className="mt-16 space-y-16">
@@ -128,6 +135,14 @@ export default function TshirtsPage() {
               </CtaButton>
             </div>
           </div>
+
+          <TshirtOrderForm />
+
+          <FadeIn variant="fade">
+            <p className="mt-20 text-center text-sm font-bold text-neutral-500">
+              👕 e-CHIROグッズ、続々登場予定
+            </p>
+          </FadeIn>
         </div>
       </main>
       <Footer />

@@ -206,6 +206,9 @@ export default function SalesAdminPage() {
           <Link href="/admin/reservations" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12 }}>
             予約管理へ
           </Link>
+          <Link href="/admin/orders" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12 }}>
+            注文管理へ
+          </Link>
         </div>
         <button onClick={handleLogout} style={{ background: 'transparent', border: '1px solid #fff', color: '#fff', borderRadius: 8, padding: '6px 12px', fontSize: 12 }}>
           ログアウト

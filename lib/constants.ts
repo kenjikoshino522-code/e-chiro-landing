@@ -13,6 +13,11 @@ export const COMPANY_ADDRESS = "〒104-0061 東京都中央区銀座6-6-1 銀座
 export const COMPANY_REPRESENTATIVE = "越野兼次";
 export const COMPANY_PHONE_NOTE = "請求があれば遅滞なく開示いたします";
 
+export const TSHIRT_PRICE = "¥5,970";
+export const TSHIRT_TREATED_PRICE = "¥3,000";
+// TODO: replace with the real Square link once issued.
+export const TSHIRT_SQUARE_LINK = "https://square.link/u/PLACEHOLDER";
+
 export const RESERVATION_MENUS = [
   {
     id: "1",

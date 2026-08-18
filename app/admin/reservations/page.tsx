@@ -98,6 +98,9 @@ export default function ReservationsAdminPage() {
           <Link href="/admin/sales" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12 }}>
             売上管理へ
           </Link>
+          <Link href="/admin/orders" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12 }}>
+            注文管理へ
+          </Link>
         </div>
         <button
           onClick={handleLogout}
