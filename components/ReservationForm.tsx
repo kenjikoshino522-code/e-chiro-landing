@@ -1,11 +1,21 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import CtaButton from "@/components/CtaButton";
 import FadeIn from "@/components/FadeIn";
 import { RESERVATION_MENUS } from "@/lib/constants";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const LOCATIONS = ["渋谷", "新宿", "池袋", "赤羽", "横浜", "津田沼", "自宅（別途追加料金）"];
+
+const REFERRAL_SOURCES = ["X", "Google", "紹介", "その他"];
+
+const TIME_SLOTS = Array.from({ length: 21 }, (_, i) => {
+  const totalMinutes = 10 * 60 + i * 30;
+  const hour = String(Math.floor(totalMinutes / 60)).padStart(2, "0");
+  const minute = String(totalMinutes % 60).padStart(2, "0");
+  return `${hour}:${minute}`;
+});
 
 export default function ReservationForm() {
   const [step, setStep] = useState<1 | 2>(1);
@@ -13,11 +23,14 @@ export default function ReservationForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [name, setName] = useState("");
-  const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [selectedMenu, setSelectedMenu] = useState<string>(RESERVATION_MENUS[0].id);
-  const [datetime1, setDatetime1] = useState("");
-  const [datetime2, setDatetime2] = useState("");
-  const [datetime3, setDatetime3] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [location, setLocation] = useState("");
+  const [referralSource, setReferralSource] = useState("");
+  const [referralOther, setReferralOther] = useState("");
   const [note, setNote] = useState("");
 
   async function submitReservation() {
@@ -26,11 +39,13 @@ export default function ReservationForm() {
 
     const payload = {
       name,
-      contact,
+      email,
+      phone,
       menu: selectedMenu,
-      preferredDatetime1: datetime1,
-      preferredDatetime2: datetime2,
-      preferredDatetime3: datetime3,
+      preferredDatetime: date && time ? `${date}T${time}` : "",
+      location: location.replace("（別途追加料金）", ""),
+      referralSource,
+      referralOther: referralSource === "その他" ? referralOther : "",
       note,
     };
 
@@ -80,21 +95,13 @@ export default function ReservationForm() {
             </h2>
           </FadeIn>
           <p className="mt-4 text-sm leading-relaxed text-neutral-700">
-            内容を確認の上、担当より折り返しご連絡いたします。決済は以下のリンクより事前にお済ませいただけます。
+            担当者より日時確定のご連絡をいたします。日時確定後、お支払い（決済リンク）のご案内を別途お送りしますので、今しばらくお待ちください。
           </p>
 
           <div className="mt-8 rounded-xl bg-white p-6 text-left">
             <p className="text-sm font-bold text-neutral-900">{confirmedMenu.label}</p>
             <p className="text-lg font-extrabold text-brand-blue">{confirmedMenu.price}</p>
           </div>
-
-          <CtaButton
-            href={confirmedMenu.squareLink}
-            variant="blue"
-            className="mt-6 block w-full rounded-full px-8 py-4 text-center text-base font-extrabold shadow-lg"
-          >
-            決済ページへ進む
-          </CtaButton>
         </div>
       </section>
     );
@@ -125,7 +132,7 @@ export default function ReservationForm() {
           <span className={`h-1.5 w-8 rounded-full ${step === 2 ? "bg-brand-blue" : "bg-brand-blue/30"}`} />
         </div>
         <p className="mt-2 text-center text-xs font-bold text-neutral-500">
-          {step === 1 ? "ステップ 1/2：基本情報" : "ステップ 2/2：ご希望日時"}
+          {step === 1 ? "ステップ 1/2：基本情報" : "ステップ 2/2：ご希望日時・場所"}
         </p>
 
         <form onSubmit={handleFormSubmit} className="mt-6 space-y-6">
@@ -147,16 +154,30 @@ export default function ReservationForm() {
               </div>
 
               <div>
-                <label htmlFor="contact" className="block text-sm font-bold text-neutral-900">
-                  連絡先（メールまたは電話番号） <span className="text-red-500">*</span>
+                <label htmlFor="email" className="block text-sm font-bold text-neutral-900">
+                  メールアドレス <span className="text-red-500">*</span>
                 </label>
                 <input
-                  id="contact"
-                  name="contact"
-                  type="text"
+                  id="email"
+                  name="email"
+                  type="email"
                   required
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-bold text-neutral-900">
+                  電話番号（任意）
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
                 />
               </div>
@@ -187,6 +208,45 @@ export default function ReservationForm() {
                 </div>
               </fieldset>
 
+              <div>
+                <label htmlFor="referralSource" className="block text-sm font-bold text-neutral-900">
+                  当店をどこで知りましたか？ <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="referralSource"
+                  name="referralSource"
+                  required
+                  value={referralSource}
+                  onChange={(e) => setReferralSource(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                >
+                  <option value="" disabled>
+                    選択してください
+                  </option>
+                  {REFERRAL_SOURCES.map((source) => (
+                    <option key={source} value={source}>
+                      {source}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {referralSource === "その他" && (
+                <div>
+                  <label htmlFor="referralOther" className="block text-sm font-bold text-neutral-900">
+                    詳しく教えてください
+                  </label>
+                  <input
+                    id="referralOther"
+                    name="referralOther"
+                    type="text"
+                    value={referralOther}
+                    onChange={(e) => setReferralOther(e.target.value)}
+                    className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                  />
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="w-full rounded-full bg-brand-blue px-8 py-4 text-base font-extrabold text-white shadow-lg transition hover:opacity-90"
@@ -199,46 +259,63 @@ export default function ReservationForm() {
           {step === 2 && (
             <>
               <div>
-                <label htmlFor="preferredDatetime1" className="block text-sm font-bold text-neutral-900">
+                <label className="block text-sm font-bold text-neutral-900">
                   第一希望日時 <span className="text-red-500">*</span>
                 </label>
-                <input
-                  id="preferredDatetime1"
-                  name="preferredDatetime1"
-                  type="datetime-local"
+                <div className="mt-2 grid grid-cols-2 gap-3">
+                  <input
+                    id="date"
+                    name="date"
+                    type="date"
+                    required
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                  />
+                  <select
+                    id="time"
+                    name="time"
+                    required
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                  >
+                    <option value="" disabled>
+                      時間を選択
+                    </option>
+                    {TIME_SLOTS.map((slot) => (
+                      <option key={slot} value={slot}>
+                        {slot}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-neutral-500">
+                  ※ご希望のお日にち・お時間は、施術者の空き状況により調整をお願いする場合がございます。あらかじめご了承ください。
+                </p>
+              </div>
+
+              <div>
+                <label htmlFor="location" className="block text-sm font-bold text-neutral-900">
+                  施術希望場所 <span className="text-red-500">*</span>
+                </label>
+                <select
+                  id="location"
+                  name="location"
                   required
-                  value={datetime1}
-                  onChange={(e) => setDatetime1(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="preferredDatetime2" className="block text-sm font-bold text-neutral-900">
-                  第二希望日時（任意）
-                </label>
-                <input
-                  id="preferredDatetime2"
-                  name="preferredDatetime2"
-                  type="datetime-local"
-                  value={datetime2}
-                  onChange={(e) => setDatetime2(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="preferredDatetime3" className="block text-sm font-bold text-neutral-900">
-                  第三希望日時（任意）
-                </label>
-                <input
-                  id="preferredDatetime3"
-                  name="preferredDatetime3"
-                  type="datetime-local"
-                  value={datetime3}
-                  onChange={(e) => setDatetime3(e.target.value)}
-                  className="mt-2 w-full rounded-lg border border-neutral-300 px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                />
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                >
+                  <option value="" disabled>
+                    選択してください
+                  </option>
+                  {LOCATIONS.map((loc) => (
+                    <option key={loc} value={loc}>
+                      {loc}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>

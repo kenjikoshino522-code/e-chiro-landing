@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
@@ -200,7 +201,12 @@ export default function SalesAdminPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#F7F7F9', fontFamily: 'sans-serif', color: '#1C1C22' }}>
       <header style={{ background: '#1E00DC', color: '#fff', padding: '1rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h1 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>e-CHIRO 売上管理</h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <h1 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>e-CHIRO 売上管理</h1>
+          <Link href="/admin/reservations" style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12 }}>
+            予約管理へ
+          </Link>
+        </div>
         <button onClick={handleLogout} style={{ background: 'transparent', border: '1px solid #fff', color: '#fff', borderRadius: 8, padding: '6px 12px', fontSize: 12 }}>
           ログアウト
         </button>
