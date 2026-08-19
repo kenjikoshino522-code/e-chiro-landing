@@ -6,7 +6,7 @@ import { TSHIRT_PRICE } from "@/lib/constants";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const SIZES = ["S", "M", "L", "XL"];
+const SIZES = ["S", "M", "L"];
 
 export default function TshirtOrderForm() {
   const [status, setStatus] = useState<Status>("idle");

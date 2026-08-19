@@ -4,7 +4,7 @@ import { CONTACT_EMAIL, TSHIRT_PRICE, TSHIRT_SQUARE_LINK } from "@/lib/constants
 
 export const runtime = "nodejs";
 
-const SIZES = ["S", "M", "L", "XL"];
+const SIZES = ["S", "M", "L"];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type OrderPayload = {
