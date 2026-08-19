@@ -63,7 +63,7 @@ async function sendAdminNotification(payload: OrderPayload): Promise<boolean> {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      from: "e-CHIRO注文フォーム <onboarding@resend.dev>",
+      from: "e-CHIRO注文フォーム <noreply@mail.e-chiro.site>",
       to: [CONTACT_EMAIL],
       subject: `【Tシャツ新規注文】${payload.name}様`,
       text: buildNotificationLines(payload).join("\n"),
@@ -105,7 +105,7 @@ async function sendCustomerConfirmation(payload: OrderPayload): Promise<boolean>
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      from: "e-CHIRO <onboarding@resend.dev>",
+      from: "e-CHIRO <noreply@mail.e-chiro.site>",
       to: [payload.email],
       subject: "【e-CHIRO】Tシャツのご注文を受け付けました",
       text: lines.join("\n"),

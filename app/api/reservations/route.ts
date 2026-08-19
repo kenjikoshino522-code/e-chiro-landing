@@ -115,7 +115,7 @@ async function sendEmailNotification(payload: ReservationPayload): Promise<boole
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      from: "e-CHIRO予約フォーム <onboarding@resend.dev>",
+      from: "e-CHIRO予約フォーム <noreply@mail.e-chiro.site>",
       to: [CONTACT_EMAIL],
       subject: `【新規予約】${payload.name}様`,
       text: lines.join("\n"),
@@ -154,7 +154,7 @@ async function sendCustomerConfirmationEmail(payload: ReservationPayload): Promi
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      from: "e-CHIRO <onboarding@resend.dev>",
+      from: "e-CHIRO <noreply@mail.e-chiro.site>",
       to: [payload.email],
       subject: "【e-CHIRO】ご予約リクエストを受け付けました",
       text: lines.join("\n"),
