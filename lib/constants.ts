@@ -15,8 +15,7 @@ export const COMPANY_PHONE_NOTE = "請求があれば遅滞なく開示いたし
 
 export const TSHIRT_PRICE = "¥5,970";
 export const TSHIRT_TREATED_PRICE = "¥3,000";
-// TODO: replace with the real Square link once issued.
-export const TSHIRT_SQUARE_LINK = "https://square.link/u/PLACEHOLDER";
+export const TSHIRT_SQUARE_LINK = "https://square.link/u/qEjETkFg";
 
 export const RESERVATION_MENUS = [
   {

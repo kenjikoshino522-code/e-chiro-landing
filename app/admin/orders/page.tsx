@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { TSHIRT_PRICE } from '@/lib/constants'
+import { TSHIRT_PRICE, TSHIRT_SQUARE_LINK } from '@/lib/constants'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,6 +33,7 @@ export default function OrdersAdminPage() {
 
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
 
   useEffect(() => {
     load()
@@ -61,6 +62,14 @@ export default function OrdersAdminPage() {
 
   function unitPrice() {
     return Number(TSHIRT_PRICE.replace(/[^0-9]/g, ''))
+  }
+
+  async function copyPaymentLink(orderId: string) {
+    await navigator.clipboard.writeText(TSHIRT_SQUARE_LINK)
+    setCopiedId(orderId)
+    setTimeout(() => {
+      setCopiedId((current) => (current === orderId ? null : current))
+    }, 2000)
   }
 
   if (loading) {
@@ -134,8 +143,16 @@ export default function OrdersAdminPage() {
                 <p style={{ margin: 0 }}>配送先: {o.shipping_address}</p>
               </div>
 
-              <div style={{ marginTop: 10, fontSize: 11, color: '#9A9AA4' }}>
-                {new Date(o.created_at).toLocaleString('ja-JP')} 受付
+              <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: 11, color: '#9A9AA4' }}>
+                  {new Date(o.created_at).toLocaleString('ja-JP')} 受付
+                </span>
+                <button
+                  onClick={() => copyPaymentLink(o.id)}
+                  style={{ fontSize: 12, padding: '6px 12px', borderRadius: 8, border: '1px solid #1E00DC', color: '#1E00DC', background: '#fff' }}
+                >
+                  {copiedId === o.id ? 'コピーしました' : 'Squareリンクをコピー'}
+                </button>
               </div>
             </div>
           ))
