@@ -109,7 +109,7 @@ export default function ReportsPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E2E8" />
                 <XAxis dataKey="year" tick={{ fontSize: 12 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `¥${(v / 10000).toFixed(0)}万`} />
-                <Tooltip formatter={(v: number) => `¥${v.toLocaleString()}`} />
+                <Tooltip formatter={(v) => `¥${Number(v).toLocaleString()}`} />
                 <Bar dataKey="売上" fill="#1E00DC" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -139,7 +139,7 @@ export default function ReportsPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E2E8" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `¥${(v / 10000).toFixed(0)}万`} />
-                <Tooltip formatter={(v: number) => `¥${v.toLocaleString()}`} />
+                <Tooltip formatter={(v) => `¥${Number(v).toLocaleString()}`} />
                 <Bar dataKey="売上" fill="#F5D800" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -154,7 +154,7 @@ export default function ReportsPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#E2E2E8" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `¥${(v / 10000).toFixed(0)}万`} />
-                <Tooltip formatter={(v: number) => `¥${v.toLocaleString()}`} />
+                <Tooltip formatter={(v) => `¥${Number(v).toLocaleString()}`} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
                 {years.map((y, i) => (
                   <Line key={y} type="monotone" dataKey={`${y}年`} stroke={LINE_COLORS[i % LINE_COLORS.length]} strokeWidth={2} dot={{ r: 2 }} />
