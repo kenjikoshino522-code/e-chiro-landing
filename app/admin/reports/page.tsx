@@ -70,19 +70,25 @@ export default function ReportsPage() {
     })
   }, [years, data])
 
-  const customerSummary = useMemo(() => {
-    const map = new Map<string, { total: number; count: number; last: string }>()
-    rawSales.forEach((s) => {
-      const cur = map.get(s.name) ?? { total: 0, count: 0, last: s.date }
-      cur.total += s.amount
-      cur.count += 1
-      if (s.date > cur.last) cur.last = s.date
-      map.set(s.name, cur)
-    })
-    return [...map.entries()]
-      .map(([name, v]) => ({ name, ...v }))
-      .sort((a, b) => b.total - a.total)
+  const [customerMonth, setCustomerMonth] = useState<string>('')
+
+  const customerMonthOptions = useMemo(() => {
+    const keys = new Set(rawSales.map((s) => s.date.slice(0, 7)))
+    return [...keys].sort().reverse()
   }, [rawSales])
+
+  const customerEntriesForMonth = useMemo(() => {
+    if (!customerMonth) return []
+    return rawSales
+      .filter((s) => s.date.slice(0, 7) === customerMonth)
+      .sort((a, b) => a.date.localeCompare(b.date))
+  }, [rawSales, customerMonth])
+
+  useEffect(() => {
+    if (!customerMonth && customerMonthOptions.length > 0) {
+      setCustomerMonth(customerMonthOptions[0])
+    }
+  }, [customerMonthOptions, customerMonth])
 
   if (loading) {
     return <div style={{ padding: 40, textAlign: 'center', color: '#6B6B76' }}>読み込み中…</div>
@@ -102,7 +108,7 @@ export default function ReportsPage() {
             { key: 'yearly', label: '年商推移' },
             { key: 'monthly', label: '年別詳細' },
             { key: 'compare', label: '月ごと比較' },
-            { key: 'customers', label: '顧客別' },
+            { key: 'customers', label: '月別記録' },
           ].map((t) => (
             <button
               key={t.key}
@@ -184,21 +190,37 @@ export default function ReportsPage() {
 
         {tab === 'customers' && (
           <div style={card()}>
-            <p style={sectionLabel()}>顧客別 合計（データがある期間のみ）</p>
-            <p style={{ fontSize: 11, color: '#9A9AA4', margin: '0 0 12px' }}>
-              ※ 場所・名前を記録し始めた期間分のみの集計です（2021〜2025年の古いデータは月合計しかないため含まれません）
-            </p>
-            {customerSummary.length === 0 ? (
-              <p style={{ fontSize: 13, color: '#9A9AA4' }}>データがありません。</p>
+            <p style={sectionLabel()}>月ごとの記録（誰がいくら）</p>
+            <select
+              value={customerMonth}
+              onChange={(e) => setCustomerMonth(e.target.value)}
+              style={{ width: '100%', height: 40, border: '1px solid #E2E2E8', borderRadius: 10, padding: '0 10px', fontSize: 14, marginBottom: 12 }}
+            >
+              {customerMonthOptions.map((k) => {
+                const [y, m] = k.split('-')
+                return <option key={k} value={k}>{y}年{parseInt(m)}月</option>
+              })}
+            </select>
+
+            {customerEntriesForMonth.length === 0 ? (
+              <p style={{ fontSize: 13, color: '#9A9AA4' }}>この月の記録がありません（2021〜2025年の古いデータは個人別の記録が無いため表示できません）。</p>
             ) : (
               <div>
-                {customerSummary.map((c) => (
-                  <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', borderBottom: '1px solid #E2E2E8', fontSize: 13 }}>
-                    <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.name}</span>
-                    <span style={{ fontSize: 11, color: '#6B6B76', width: 50, textAlign: 'right' }}>{c.count}回</span>
-                    <span style={{ width: 90, textAlign: 'right', fontWeight: 700 }}>¥{c.total.toLocaleString()}</span>
-                  </div>
-                ))}
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 4px', borderBottom: '2px solid #E2E2E8', fontSize: 12, color: '#6B6B76', fontWeight: 700 }}>
+                  <span>この月の合計</span>
+                  <span>¥{customerEntriesForMonth.reduce((s, e) => s + e.amount, 0).toLocaleString()}</span>
+                </div>
+                {customerEntriesForMonth.map((e, i) => {
+                  const d = new Date(e.date)
+                  const label = `${d.getMonth() + 1}/${d.getDate()}`
+                  return (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', borderBottom: '1px solid #E2E2E8', fontSize: 13 }}>
+                      <span style={{ width: 40, color: '#6B6B76', flexShrink: 0 }}>{label}</span>
+                      <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{e.name}</span>
+                      <span style={{ textAlign: 'right', fontWeight: 700 }}>¥{e.amount.toLocaleString()}</span>
+                    </div>
+                  )
+                })}
               </div>
             )}
           </div>
