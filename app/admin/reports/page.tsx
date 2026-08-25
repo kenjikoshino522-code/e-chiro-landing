@@ -8,15 +8,17 @@ import {
 } from 'recharts'
 
 const MONTH_LABELS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
-const LINE_COLORS = ['#1E00DC', '#F5D800', '#00A870', '#E0457B', '#7A5CFF', '#FF7A29', '#00B4D8']
+const LINE_COLORS = ['#1E00DC', '#E0457B', '#00A870', '#FF7A29', '#7A5CFF', '#00B4D8', '#B08900']
 
 type YearlyData = Record<number, number[]> // year -> [12 monthly totals]
+type SaleRow = { date: string; name: string; amount: number }
 
 export default function ReportsPage() {
   const supabase = createClient()
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<YearlyData>({})
-  const [tab, setTab] = useState<'yearly' | 'monthly' | 'compare'>('yearly')
+  const [rawSales, setRawSales] = useState<SaleRow[]>([])
+  const [tab, setTab] = useState<'yearly' | 'monthly' | 'compare' | 'customers'>('yearly')
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
 
   useEffect(() => {
@@ -33,7 +35,8 @@ export default function ReportsPage() {
       merged[row.year][row.month - 1] = row.total
     })
 
-    const { data: sales } = await supabase.from('sales').select('date, amount')
+    const { data: sales } = await supabase.from('sales').select('date, name, amount')
+    setRawSales((sales as SaleRow[]) ?? [])
     ;(sales ?? []).forEach((row: any) => {
       const year = Number(row.date.slice(0, 4))
       const month = Number(row.date.slice(5, 7))
@@ -67,6 +70,20 @@ export default function ReportsPage() {
     })
   }, [years, data])
 
+  const customerSummary = useMemo(() => {
+    const map = new Map<string, { total: number; count: number; last: string }>()
+    rawSales.forEach((s) => {
+      const cur = map.get(s.name) ?? { total: 0, count: 0, last: s.date }
+      cur.total += s.amount
+      cur.count += 1
+      if (s.date > cur.last) cur.last = s.date
+      map.set(s.name, cur)
+    })
+    return [...map.entries()]
+      .map(([name, v]) => ({ name, ...v }))
+      .sort((a, b) => b.total - a.total)
+  }, [rawSales])
+
   if (loading) {
     return <div style={{ padding: 40, textAlign: 'center', color: '#6B6B76' }}>読み込み中…</div>
   }
@@ -80,17 +97,18 @@ export default function ReportsPage() {
 
       <main style={{ maxWidth: 720, margin: '0 auto', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {[
             { key: 'yearly', label: '年商推移' },
             { key: 'monthly', label: '年別詳細' },
             { key: 'compare', label: '月ごと比較' },
+            { key: 'customers', label: '顧客別' },
           ].map((t) => (
             <button
               key={t.key}
               onClick={() => setTab(t.key as any)}
               style={{
-                flex: 1, padding: '10px 0', borderRadius: 10, border: '1px solid #E2E2E8',
+                flex: '1 1 auto', minWidth: 70, padding: '10px 0', borderRadius: 10, border: '1px solid #E2E2E8',
                 background: tab === t.key ? '#1E00DC' : '#fff',
                 color: tab === t.key ? '#fff' : '#1C1C22',
                 fontWeight: 700, fontSize: 13,
@@ -140,7 +158,7 @@ export default function ReportsPage() {
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `¥${(v / 10000).toFixed(0)}万`} />
                 <Tooltip formatter={(v) => `¥${Number(v).toLocaleString()}`} />
-                <Bar dataKey="売上" fill="#F5D800" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="売上" fill="#FF7A29" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -164,6 +182,28 @@ export default function ReportsPage() {
           </div>
         )}
 
+        {tab === 'customers' && (
+          <div style={card()}>
+            <p style={sectionLabel()}>顧客別 合計（データがある期間のみ）</p>
+            <p style={{ fontSize: 11, color: '#9A9AA4', margin: '0 0 12px' }}>
+              ※ 場所・名前を記録し始めた期間分のみの集計です（2021〜2025年の古いデータは月合計しかないため含まれません）
+            </p>
+            {customerSummary.length === 0 ? (
+              <p style={{ fontSize: 13, color: '#9A9AA4' }}>データがありません。</p>
+            ) : (
+              <div>
+                {customerSummary.map((c) => (
+                  <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', borderBottom: '1px solid #E2E2E8', fontSize: 13 }}>
+                    <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.name}</span>
+                    <span style={{ fontSize: 11, color: '#6B6B76', width: 50, textAlign: 'right' }}>{c.count}回</span>
+                    <span style={{ width: 90, textAlign: 'right', fontWeight: 700 }}>¥{c.total.toLocaleString()}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
       </main>
     </div>
   )
@@ -175,3 +215,4 @@ function card(): React.CSSProperties {
 function sectionLabel(): React.CSSProperties {
   return { fontSize: 13, color: '#6B6B76', margin: '0 0 10px', fontWeight: 700 }
 }
+
