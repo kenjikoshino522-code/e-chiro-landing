@@ -334,6 +334,11 @@ export default function SalesAdminPage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 4px 0', fontWeight: 700, fontSize: 13 }}>
             <span>月平均</span><span>¥{yearSummary.avg.toLocaleString()}</span>
           </div>
+                  <div style={{ textAlign: 'center', padding: '4px 0 20px' }}>
+          <a href="/admin/reports" style={{ fontSize: 12, color: '#9A9AA4' }}>
+            📊 年次レポートを見る
+          </a>
+        </div>
         </div>
       </main>
     </div>
