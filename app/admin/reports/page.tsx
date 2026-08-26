@@ -12,12 +12,14 @@ const LINE_COLORS = ['#1E00DC', '#E0457B', '#00A870', '#FF7A29', '#7A5CFF', '#00
 
 type YearlyData = Record<number, number[]> // year -> [12 monthly totals]
 type SaleRow = { date: string; name: string; amount: number }
+type ArchiveDetailRow = { year: number; month: number; date: string | null; name: string; amount: number }
 
 export default function ReportsPage() {
   const supabase = createClient()
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<YearlyData>({})
   const [rawSales, setRawSales] = useState<SaleRow[]>([])
+  const [archiveDetail, setArchiveDetail] = useState<ArchiveDetailRow[]>([])
   const [tab, setTab] = useState<'yearly' | 'monthly' | 'compare' | 'customers'>('yearly')
   const [selectedYear, setSelectedYear] = useState<number | null>(null)
 
@@ -43,6 +45,9 @@ export default function ReportsPage() {
       if (!merged[year]) merged[year] = Array(12).fill(0)
       merged[year][month - 1] += row.amount
     })
+
+    const { data: detail } = await supabase.from('sales_archive_detail').select('year, month, date, name, amount')
+    setArchiveDetail((detail as ArchiveDetailRow[]) ?? [])
 
     setData(merged)
     const years = Object.keys(merged).map(Number).sort((a, b) => b - a)
@@ -72,17 +77,37 @@ export default function ReportsPage() {
 
   const [customerMonth, setCustomerMonth] = useState<string>('')
 
-  const customerMonthOptions = useMemo(() => {
-    const keys = new Set(rawSales.map((s) => s.date.slice(0, 7)))
-    return [...keys].sort().reverse()
-  }, [rawSales])
+  // 明細データを "YYYY-MM" キーの一覧に正規化（sales: 実データ / archiveDetail: 過去データ）
+  const combinedMonthlyEntries = useMemo(() => {
+    const map = new Map<string, { day: number | null; name: string; amount: number }[]>()
+
+    rawSales.forEach((s) => {
+      const key = s.date.slice(0, 7)
+      const day = Number(s.date.slice(8, 10))
+      if (!map.has(key)) map.set(key, [])
+      map.get(key)!.push({ day, name: s.name, amount: s.amount })
+    })
+
+    archiveDetail.forEach((r) => {
+      const key = `${r.year}-${String(r.month).padStart(2, '0')}`
+      const day = r.date ? Number(r.date.slice(8, 10)) : null
+      if (!map.has(key)) map.set(key, [])
+      map.get(key)!.push({ day, name: r.name, amount: r.amount })
+    })
+
+    return map
+  }, [rawSales, archiveDetail])
+
+  const customerMonthOptions = useMemo(
+    () => [...combinedMonthlyEntries.keys()].sort().reverse(),
+    [combinedMonthlyEntries]
+  )
 
   const customerEntriesForMonth = useMemo(() => {
     if (!customerMonth) return []
-    return rawSales
-      .filter((s) => s.date.slice(0, 7) === customerMonth)
-      .sort((a, b) => a.date.localeCompare(b.date))
-  }, [rawSales, customerMonth])
+    const list = combinedMonthlyEntries.get(customerMonth) ?? []
+    return [...list].sort((a, b) => (a.day ?? 99) - (b.day ?? 99))
+  }, [combinedMonthlyEntries, customerMonth])
 
   useEffect(() => {
     if (!customerMonth && customerMonthOptions.length > 0) {
@@ -203,24 +228,20 @@ export default function ReportsPage() {
             </select>
 
             {customerEntriesForMonth.length === 0 ? (
-              <p style={{ fontSize: 13, color: '#9A9AA4' }}>この月の記録がありません（2021〜2025年の古いデータは個人別の記録が無いため表示できません）。</p>
+              <p style={{ fontSize: 13, color: '#9A9AA4' }}>この月の記録がありません。</p>
             ) : (
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 4px', borderBottom: '2px solid #E2E2E8', fontSize: 12, color: '#6B6B76', fontWeight: 700 }}>
                   <span>この月の合計</span>
                   <span>¥{customerEntriesForMonth.reduce((s, e) => s + e.amount, 0).toLocaleString()}</span>
                 </div>
-                {customerEntriesForMonth.map((e, i) => {
-                  const d = new Date(e.date)
-                  const label = `${d.getMonth() + 1}/${d.getDate()}`
-                  return (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', borderBottom: '1px solid #E2E2E8', fontSize: 13 }}>
-                      <span style={{ width: 40, color: '#6B6B76', flexShrink: 0 }}>{label}</span>
-                      <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{e.name}</span>
-                      <span style={{ textAlign: 'right', fontWeight: 700 }}>¥{e.amount.toLocaleString()}</span>
-                    </div>
-                  )
-                })}
+                {customerEntriesForMonth.map((e, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 4px', borderBottom: '1px solid #E2E2E8', fontSize: 13 }}>
+                    <span style={{ width: 32, color: '#6B6B76', flexShrink: 0 }}>{e.day ? `${e.day}日` : ''}</span>
+                    <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{e.name}</span>
+                    <span style={{ textAlign: 'right', fontWeight: 700 }}>¥{e.amount.toLocaleString()}</span>
+                  </div>
+                ))}
               </div>
             )}
           </div>
